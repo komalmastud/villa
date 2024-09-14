@@ -1,0 +1,184 @@
+nav {
+  display: flex;
+  gap: 40px;
+  top: 0;
+  left: 0;
+  color: black;
+  margin-left: 500px;
+  margin-top: 10px;
+  padding-left: 100px;
+  font-size: 20px;
+  z-index: 1000;
+  font-weight: bold;
+  position: fixed;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  gap: 40px;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: white;
+  padding: 0 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 3px solid white;
+  border-radius: 5px;
+  top: 1px;
+  position: relative;
+}
+
+a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.pink {
+  font-weight: bold;
+}
+
+/*swipper css*/
+img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  margin: px;
+  padding: 0;
+
+  top: -20px;
+  z-index: 1;
+  position: relative;
+}
+.photos {
+  position: relative;
+  overflow: hidden;
+}
+
+.photos img {
+  width: 100%;
+  height: auto;
+}
+
+.over {
+  position: absolute;
+  left: 500px;
+  top: 180px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.overbutton {
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
+  top: -300px;
+  left: 700px;
+  z-index: 1;
+
+  position: relative;
+}
+
+/*date-picker css*/
+.search {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  height: 10vh;
+  width: 85%;
+  background-color: white;
+  box-shadow: rgb(197, 205, 207);
+  z-index: 1;
+  top: 500px;
+  padding-top: 20px;
+  border-radius: 10px;
+  left: 150px;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+}
+.black button {
+  height: 8vh;
+  width: 10%;
+  margin: 1px;
+  background-color: black;
+  color: white;
+  font: menu;
+  font-size: 20px;
+  padding: 2px;
+  padding-left: -50px;
+  top: 15px;
+  left: 1145px;
+  position: absolute;
+  border-radius: 5px;
+}
+.location button {
+  height: 8vh;
+  width: 21%;
+  margin-left: 15px;
+  border-radius: 4px;
+  font-size: 17px;
+  padding: 20px;
+  position: absolute;
+  top: 15px;
+  left: 6px;
+}
+.checkin button {
+  height: 8vh;
+  width: 21%;
+  margin-left: 15px;
+  border-radius: 4px;
+  font-size: 17px;
+  padding: 20px;
+  position: absolute;
+  top: 15px;
+  left: 289px;
+}
+
+.checkout button {
+  height: 8vh;
+  width: 21%;
+  border-radius: 4px;
+  font-size: 17px;
+  padding: 20px;
+  position: absolute;
+  top: 15px;
+  left: 585px;
+}
+.guest button {
+  height: 8vh;
+  width: 21%;
+  border-radius: 4px;
+  font-size: 17px;
+  padding: 20px;
+  position: absolute;
+  top: 15px;
+  left: 867px;
+}
+
+/*icons css*/
+.Image img {
+  height: 20vh;
+  width: 100%;
+  padding-top: 80px;
+}
