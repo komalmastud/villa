@@ -4,8 +4,6 @@ import Home from "./Components/Home";
 import Login from "./Components/Login";
 import User from "./Components/User";
 import Card from "./Components/Card";
-import Index from "./Components/Index";
-
 import Swipper from "./Components/Swipper";
 import Search from "./Components/Search";
 import Icons from "./Components/Icons";
@@ -24,7 +22,6 @@ function App() {
           <Home />
           <Search />
           <Icons />
-          <Index />
           <Card />
         </>
       ),

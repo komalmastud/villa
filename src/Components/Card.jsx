@@ -1,4 +1,5 @@
-function First() {
+import React from "react";
+function Card() {
   console.log();
   return (
     <>
@@ -8,7 +9,7 @@ function First() {
           <div className="card-info">
             <span className="card-category">.title</span>
             <h3 className="card-title">.name</h3>
-            <a href="" target="blank">
+            <a href="" target="_blank">
               <button>→</button>
             </a>
           </div>
@@ -18,4 +19,4 @@ function First() {
   );
 }
 
-export default First;
+export default Card;
