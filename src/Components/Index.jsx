@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom/client";
+/*import ReactDOM from "react-dom/client";
 import Card from "./Card";
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
@@ -14,4 +14,4 @@ root.render(
     <Card img="../assets/card4.jpg" title="Sidhowal Lodge" name="three" />
     <Card img="../assets/card5.jpg" title="Out Of The Woods" name="three" />
   </>
-);
+);*/

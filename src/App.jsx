@@ -3,10 +3,12 @@ import "./index.css";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import User from "./Components/User";
-import Card from "./Components/Card";
 import Swipper from "./Components/Swipper";
+import Collection from "./Components/Collection";
 import Search from "./Components/Search";
 import Icons from "./Components/Icons";
+import "./App.css";
+import Card from "./Components/Card";
 import AboutUs from "./Components/AboutUs";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -22,7 +24,11 @@ function App() {
           <Home />
           <Search />
           <Icons />
-          <Card />
+
+          <div className="App">
+            <Card />
+          </div>
+          <Collection />
         </>
       ),
     },
