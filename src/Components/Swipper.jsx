@@ -23,6 +23,7 @@ function Features() {
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
+        loop={true}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >

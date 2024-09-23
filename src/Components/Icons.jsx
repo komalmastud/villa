@@ -1,29 +1,29 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import Slide1 from "../assets/Igatpuri.svg";
-import Slide2 from "../assets/Lonavala.svg";
-import Slide3 from "../assets/Pune.svg";
-import Slide4 from "../assets/Ooty.svg";
-import Slide5 from "../assets/Nashik.svg";
-import Slide6 from "../assets/Nashik - Final Website Icon.svg";
-import Slide7 from "../assets/Nainital.svg";
-import Slide8 from "../assets/Mussoorie.svg";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Slide9 from "../assets/Alibaug.svg";
-import Slide10 from "../assets/Shimla.svg";
 import Slide11 from "../assets/Bhimtal.svg";
 import Slide12 from "../assets/Chandigarh.svg";
 import Slide13 from "../assets/Conoor.svg";
 import Slide14 from "../assets/Dehradun.svg";
 import Slide15 from "../assets/Goa.svg";
 import Slide16 from "../assets/Gurgaon.svg";
+import Slide1 from "../assets/Igatpuri.svg";
+import Slide2 from "../assets/Lonavala.svg";
+import Slide8 from "../assets/Mussoorie.svg";
+import Slide7 from "../assets/Nainital.svg";
+import Slide6 from "../assets/Nashik - Final Website Icon.svg";
+import Slide5 from "../assets/Nashik.svg";
+import Slide4 from "../assets/Ooty.svg";
+import Slide3 from "../assets/Pune.svg";
+import Slide10 from "../assets/Shimla.svg";
 
 function Features() {
   return (
     <>
-      <div>
+      <div className="fulldiv">
         <h3>PICK A DESTINATION</h3>
         <label className="Image">
           <Swiper

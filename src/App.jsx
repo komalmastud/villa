@@ -1,15 +1,11 @@
-import Navbar from "./Components/Navbar";
-import "./index.css";
-import Home from "./Components/Home";
-import Login from "./Components/Login";
-import User from "./Components/User";
-import Swipper from "./Components/Swipper";
-import Collection from "./Components/Collection";
-import Search from "./Components/Search";
-import Icons from "./Components/Icons";
 import "./App.css";
-import Card from "./Components/Card";
 import AboutUs from "./Components/AboutUs";
+import Login from "./Components/Login";
+import Navbar from "./Components/Navbar";
+import Swipper from "./Components/Swipper";
+import User from "./Components/User";
+import Home from "./Home";
+import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -19,16 +15,7 @@ function App() {
       path: "/",
       element: (
         <>
-          <Swipper />
-          <Navbar />
           <Home />
-          <Search />
-          <Icons />
-
-          <div className="App">
-            <Card />
-          </div>
-          <Collection />
         </>
       ),
     },
@@ -74,7 +61,6 @@ function App() {
       element: (
         <>
           <Navbar />
-
           <h1>Page Not Found</h1>
         </>
       ),

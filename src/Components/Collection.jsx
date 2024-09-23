@@ -1,15 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Collection6 from "../assets/image10.jpg";
+import Collection8 from "../assets/image2.jpg";
 import Collection1 from "../assets/image3.jpg";
 import Collection2 from "../assets/image4.jpg";
 import Collection3 from "../assets/image5.jpg";
 import Collection4 from "../assets/image6.jpg";
 import Collection5 from "../assets/image7.jpg";
-import Collection6 from "../assets/image10.jpg";
 import Collection7 from "../assets/image9.jpg";
-import Collection8 from "../assets/image2.jpg";
 
 function Collection() {
   return (
@@ -24,6 +24,7 @@ function Collection() {
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
+        loop={true}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >

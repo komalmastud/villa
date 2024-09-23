@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
+import './Navbar.css'; 
 
 function Navbar() {
   return (
     <div>
-      <nav>
+      <nav className="navbar">
+        
         <ul>
           <li>
             <NavLink
-              className={({ isActive }) => (isActive ? "pink" : "")}
+              className={({ isActive }) => (isActive ? "pink" : "link")}
               to="/"
             >
               Home
@@ -15,7 +17,7 @@ function Navbar() {
           </li>
           <li>
             <NavLink
-              className={({ isActive }) => (isActive ? "pink" : "")}
+              className={({ isActive }) => (isActive ? "pink" : "link")}
               to="/luxury-getaways"
             >
               Luxury Getaways
@@ -23,7 +25,7 @@ function Navbar() {
           </li>
           <li>
             <NavLink
-              className={({ isActive }) => (isActive ? "pink" : "")}
+              className={({ isActive }) => (isActive ? "pink" : "link")}
               to="/list-property"
             >
               List Your Property
@@ -31,7 +33,7 @@ function Navbar() {
           </li>
           <li>
             <NavLink
-              className={({ isActive }) => (isActive ? "pink" : "")}
+              className={({ isActive }) => (isActive ? "pink" : "link")}
               to="/contact"
             >
               Contact Us
