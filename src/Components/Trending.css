@@ -1,0 +1,38 @@
+/* Trending Container */
+.trending-container {
+  text-align: center; /* Center text */
+  margin: 20px 0; /* Margin around container */
+}
+
+/* Heading Style */
+.trending-container h3 {
+  font-size: 1.5rem; /* Font size for heading */
+  color: #333;
+  margin-top: 100px;
+  margin-bottom: 100px; /* Dark text color */
+  margin-left: -1050px;
+}
+
+/* List Style */
+.trending-link {
+  list-style: none; /* Remove default list style */
+  padding: 0; /* Remove padding */
+  display: flex; /* Flex display for horizontal alignment */
+  flex-wrap: wrap;
+  margin-left: 50px; /* Allow wrapping on small screens */
+  gap: 20px; /* Space between items */
+}
+
+/* Trending Button Link Styles */
+.trending-button {
+  background-color: lightgrey; /* Tomato background color */
+  color: black; /* White text color */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.trending-button:hover {
+  background-color: lightgoldenrodyellow; /* Darker shade on hover */
+}

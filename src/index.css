@@ -1,4 +1,4 @@
-nav {
+.navbar {
   display: flex;
   gap: 40px;
   top: 0;
@@ -12,7 +12,7 @@ nav {
   position: fixed;
 }
 
-ul {
+.navbar ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -20,13 +20,13 @@ ul {
   gap: 40px;
 }
 
-li {
+.navbar li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-a {
+.navbar a {
   color: white;
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -37,7 +37,7 @@ a {
   position: relative;
 }
 
-a:hover {
+.navbar a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -46,7 +46,7 @@ a:hover {
   margin: 0;
 }
 
-.pink {
+.navbar .pink {
   font-weight: bold;
 }
 
@@ -179,26 +179,82 @@ a:hover {
 .Image img {
   height: 12vh;
   width: 50%;
+  margin-left: 50px;
   padding-top: 80px;
 }
+.fulldiv label {
+  margin-left: 200px;
+}
 
-/*collecetion css*/
-.collection-photos img {
-  height: 50vh;
-  width: 100%;
-  margin: 20px;
-
-  border-radius: 10px;
+.fulldiv h4 {
+  margin-left: 50px;
+}
+/*collection css*/
+.collection-photos {
+  position: relative;
+  cursor: pointer;
 }
 
 .heading {
-  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
+.collection-photos img {
+  width: 100%;
+  height: 300px; /* Set the desired height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  transition: filter 0.3s ease;
+  margin-left: 50px;
+}
 
-.collection-over h2 {
-  z-index: 1;
-  top: 120px;
-  left: 50px;
+.collection-photos .collection-over {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.collection-photos h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.collection-photos p {
+  display: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.collection-photos.blur img {
+  filter: blur(5px);
+}
+
+.collection-photos.blur h2 {
+  transform: translateY(-20px); /* Moves the heading upwards */
+}
+
+.collection-photos.blur p {
+  display: block;
+  transform: translateY(10px); /* Slides the paragraph into view */
+  opacity: 1;
+}
+
+/*rate css*/
+.rate-container {
+  font-size: 1.5rem;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.rate-link {
+  display: flex;
+  margin-left: -50px;
 }

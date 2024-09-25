@@ -1,0 +1,66 @@
+/* Footer container */
+.footer {
+  background-color: #333; /* Dark background */
+  color: #fff; /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Footer inner content */
+.footer-container {
+  max-width: 1200px;
+  margin: auto; /* Center the footer content */
+}
+
+/* Footer title */
+.footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/* List of footer links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 20px; /* Space between links */
+}
+
+/* Footer link styles */
+.footer-links a {
+  color: #fff; /* White links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ddd; /* Lighten links on hover */
+}
+
+/* Social media section */
+.social-media {
+  margin-top: 20px; /* Space above social media links */
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Space between social links */
+}
+
+/* Footer bottom */
+.footer-bottom {
+  margin-top: 20px; /* Space above bottom text */
+  font-size: 0.9rem; /* Smaller font size */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .footer-links {
+    flex-direction: column; /* Stack links vertically */
+  }
+}
