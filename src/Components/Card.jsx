@@ -14,117 +14,116 @@ import Woods from "../assets/card5.jpg";
 import tulip from "../assets/card6.jpg";
 import dhaulandhar from "../assets/card7.jpg";
 import Aloe from "../assets/card8.jpg";
-import Amethyst from "../assets/card9.jpg";
+import Chail from "../assets/card9.jpg";
 
 const Card = () => {
   return (
     <div className="product">
       <Swiper
-        slidesPerView={4} // Show 4 slides at a time
-        spaceBetween={30} // Adds space between slides
-        navigation // Enable navigation arrows
-        pagination={{ clickable: true }} // Enable pagination dots
-        loop={true} // Enable infinite looping
-        modules={[Navigation, Pagination]} // Add navigation and pagination modules
+        slidesPerView={4}
+        spaceBetween={30}
+        navigation
+        pagination={{ clickable: true }}
+        loop={true}
+        modules={[Navigation, Pagination]}
         breakpoints={{
           640: {
-            slidesPerView: 1, // On small screens, show 1 slide
+            slidesPerView: 1,
             spaceBetween: 10,
           },
           768: {
-            slidesPerView: 2, // On medium screens, show 2 slides
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 3, // On large screens, show 3 slides
+            slidesPerView: 3,
             spaceBetween: 30,
           },
           1440: {
-            slidesPerView: 4, // On extra-large screens, show 4 slides
+            slidesPerView: 4,
             spaceBetween: 40,
           },
         }}
       >
-        {/* Swiper slides with unique data */}
         <SwiperSlide>
           <ProductCard
             image={Pranam}
             name="Pranam"
             description="Alibaug, Maharastra"
-            price="Upto 15 Guests + 6 Rooms + 6 Bath"
-            des_price="₹50000"
+            info="Upto 15 Guests + 6 Rooms + 6 Baths"
+            des_price="₹53,500"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={Simoes}
             name="Casa Simoes - Candolim"
-            description="Candolim, Goa"
-            price="₹65000"
-            des_price="₹50000"
+            description="Goa, Goa"
+            info="Upto 7 Guests + 3 Rooms + 3 Baths"
+            des_price="₹36,020"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={Saligo}
-            name="Villa Amethyst - Aligo"
-            description="Stay at Villa Amethyst"
-            price="₹65000"
-            des_price="₹50000"
+            name="Villa Amethyst - saligo"
+            description="Goa, Goa"
+            info="Upto 10 Guests + 4 Rooms + 4 Baths"
+            des_price="₹15,435"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={Sidhowal}
             name="Sidhowal Lodge"
-            description="Luxury Lodge in Sidhowal"
-            price="₹65000"
-            des_price="₹50000"
+            description="Shimla, Himachal Pradesh"
+            info="Upto 3 Guests + 1 Room + 1 Bath"
+            des_price="₹11,248"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={Woods}
-            name="The Woods - Chail"
-            description="Stay at The Woods in Chail"
-            price="₹65000"
-            des_price="₹50000"
+            name="Out Of The Woods"
+            description="Kasauli, Himachal Pradesh"
+            info="Upto 9 Guests + 3 Rooms + 3 Baths"
+            des_price="₹22,630"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={tulip}
-            name="Tulip Resort"
-            description="Relax at Tulip Resort"
-            price="₹65000"
-            des_price="₹50000"
+            name="Tulip Terraces"
+            description="Manali, Himachal Pradesh"
+            info="Upto 14 Guests + 7 Rooms + 7 Baths"
+            des_price="₹37,750"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={dhaulandhar}
             name="Dhaulandhar Heights"
-            description="Stay at Dhaulandhar Heights"
-            price="₹65000"
-            des_price="₹50000"
+            description="Dharamshala, Himachal Pradesh"
+            info="Upto 8 Guests + 4 Rooms + 4 Baths"
+            des_price="₹30,400"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
             image={Aloe}
-            name="Aloe Retreat"
-            description="Aloe Retreat, Himachal Pradesh"
-            price="₹65000"
-            des_price="₹50000"
+            name="Aloe Villa"
+            description="Naintal, Uttarakhand"
+            info="Upto 8 Guests + 4 Rooms + 4 Baths"
+            des_price="₹27,451"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProductCard
-            image={Amethyst}
-            name="Amethyst Villa"
-            description="Stay at Amethyst Villa"
-            price="₹65000"
-            des_price="₹50000"
+            image={Chail}
+            name="The Woods - Chail"
+            description="Shimla, Himachal Pradesh"
+            info="Upto 12 Guests + 5 Rooms + 5 Baths"
+            des_price="₹50,000"
           />
         </SwiperSlide>
       </Swiper>

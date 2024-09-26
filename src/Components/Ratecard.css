@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: -30px;
 }
 
 /* Hover effect on the product box */

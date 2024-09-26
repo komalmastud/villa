@@ -5,7 +5,7 @@ const Rate = () => {
   return (
     <>
       <div className="resortname-container">
-        <h3>Rate Our Services</h3>
+        <h4>Rate Our Services</h4>
       </div>
       <ul className="resortname-link">
         <li>
@@ -15,32 +15,37 @@ const Rate = () => {
         </li>
         <li>
           <Link to="/rate/1-star" className="resortname">
-            1 Star
+            Lonavala
           </Link>
         </li>
         <li>
           <Link to="/rate/2-stars" className="resortname">
-            2 Stars
+            Alibaug
           </Link>
         </li>
         <li>
           <Link to="/rate/3-stars" className="resortname">
-            3 Stars
+            Goa
           </Link>
         </li>
         <li>
           <Link to="/rate/4-stars" className="resortname">
-            4 Stars
+            Shimla
           </Link>
         </li>
         <li>
           <Link to="/rate/5-stars" className="resortname">
-            5 Stars
+            Manali
           </Link>
         </li>
         <li>
           <Link to="/rate-more" className="resortname">
-            Rate More
+            Coorg
+          </Link>
+        </li>
+        <li>
+          <Link to="/rate-more" className="resortname">
+            Explore more
           </Link>
         </li>
       </ul>

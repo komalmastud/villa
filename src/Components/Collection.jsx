@@ -19,6 +19,58 @@ function Collection() {
     setActiveSlide(index === activeSlide ? null : index); // Toggle blur
   };
 
+  // Define an array of objects containing image, heading, and description
+  const collections = [
+    {
+      image: Collection1,
+      heading: "Luxury Escape",
+      description:
+        "Indulge in a premium experience with our luxury escapes. Book now and enjoy unmatched comfort.",
+    },
+    {
+      image: Collection2,
+      heading: "Mountain Retreat",
+      description:
+        "Reconnect with nature at our scenic mountain retreats. Perfect for a peaceful getaway.",
+    },
+    {
+      image: Collection3,
+      heading: "City Break",
+      description:
+        "Explore the vibrant city life with our exclusive city break offers. Stay in the heart of the action.",
+    },
+    {
+      image: Collection4,
+      heading: "Beachfront Paradise",
+      description:
+        "Relax at our beachfront properties with stunning ocean views and endless sunshine.",
+    },
+    {
+      image: Collection5,
+      heading: "Cultural Journey",
+      description:
+        "Immerse yourself in local culture with our guided tours and unique cultural experiences.",
+    },
+    {
+      image: Collection6,
+      heading: "Adventure Awaits",
+      description:
+        "For thrill-seekers, embark on a daring adventure with our specially curated packages.",
+    },
+    {
+      image: Collection7,
+      heading: "Romantic Getaway",
+      description:
+        "A perfect retreat for couples looking to rekindle romance in a beautiful, serene setting.",
+    },
+    {
+      image: Collection8,
+      heading: "Family Fun",
+      description:
+        "Bring the whole family for a fun-filled vacation, with activities for all ages.",
+    },
+  ];
+
   return (
     <>
       <div className="heading">
@@ -35,16 +87,7 @@ function Collection() {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {[
-          Collection1,
-          Collection2,
-          Collection3,
-          Collection4,
-          Collection5,
-          Collection6,
-          Collection7,
-          Collection8,
-        ].map((collection, index) => (
+        {collections.map((collection, index) => (
           <SwiperSlide key={index}>
             <div
               className={`collection-photos ${
@@ -52,13 +95,10 @@ function Collection() {
               }`}
               onClick={() => handleImageClick(index)}
             >
-              <img src={collection} alt={`Collection ${index + 1}`} />
+              <img src={collection.image} alt={`Collection ${index + 1}`} />
               <div className="collection-over">
-                <h2>Collection Heading {index + 1}</h2>
-                <p>
-                  This is the description for Collection {index + 1}. Book now
-                  and get exclusive offers!
-                </p>
+                <h2>{collection.heading}</h2>
+                <p>{collection.description}</p>
               </div>
             </div>
           </SwiperSlide>

@@ -1,66 +1,83 @@
-/* Footer container */
 .footer {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  padding: 20px;
-  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
 }
 
-/* Footer inner content */
 .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   max-width: 1200px;
-  margin: auto; /* Center the footer content */
+  margin: 50px;
+  margin-left: 120px;
 }
 
-/* Footer title */
-.footer h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-/* List of footer links */
-.footer-links {
-  list-style: none;
-  padding: 0;
+.footer-column {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  gap: 20px; /* Space between links */
+  flex-direction: column;
 }
 
-/* Footer link styles */
-.footer-links a {
-  color: #fff; /* White links */
+.footer-column h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  margin: 5px 0;
 }
 
-.footer-links a:hover {
-  color: #ddd; /* Lighten links on hover */
+.footer-column a:hover {
+  text-decoration: underline;
 }
 
-/* Social media section */
-.social-media {
-  margin-top: 20px; /* Space above social media links */
+.mid-line {
+  width: 50%;
+  border-bottom: 2px solid #fff;
+  margin: 10px 0;
+  align-self: flex-start;
 }
 
-.social-links {
-  list-style: none;
-  padding: 0;
+.footer-line {
+  border-top: 1px solid #fff;
+  margin: 20px 100px;
+}
+
+.footer-second-name {
+  text-align: center;
+  margin: 80px 80px;
+  font-size: 15px;
+}
+
+.social-icons {
   display: flex;
-  justify-content: center;
-  gap: 15px; /* Space between social links */
+  gap: 20px;
 }
 
-/* Footer bottom */
+.social-icons a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #bbb;
+}
+
 .footer-bottom {
-  margin-top: 20px; /* Space above bottom text */
-  font-size: 0.9rem; /* Smaller font size */
+  margin-top: 20px;
+  text-align: center;
+  color: #bbb;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .footer-links {
-    flex-direction: column; /* Stack links vertically */
-  }
+.social-media {
+  margin-left: 1100px;
+}
+
+.social-media {
+  margin-left: 1100px;
+}
+.social-media h4 {
+  margin: 20px;
 }

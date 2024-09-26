@@ -1,77 +1,42 @@
 /* Container for the rate cards */
 .product {
-  padding: 40px;
-  background-color: #f7f7f7;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+.product-box {
+  background-color: #fff;
+  border: 1px solid #ddd; /* Light gray border around the card */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: transform 0.3s; /* Smooth scaling transition */
 }
 
-/* Image styling */
-.product-box {
-  border: 1px solid #e0e0e0;
-  overflow: hidden;
-  background-color: #fff;
+.product-box:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .product-box img {
   width: 100%;
-  height: 200px; /* Increased height */
-  object-fit: cover;
+  height: auto; /* Maintain aspect ratio */
 }
-
-/* Product description container */
 .description {
-  padding: 15px;
-  text-align: center;
+  padding: 15px; /* Space around the description text */
 }
 
-/* Product name styling */
 .description h4 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 600;
+  margin: 0 0 10px; /* No margin above, 10px below */
+  font-size: 1.2rem; /* Font size for product name */
+  color: #333; /* Dark gray color for the name */
 }
 
-/* Description text styling */
 .para {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 10px;
+  font-size: 0.9rem; /* Font size for the description */
+  color: #555; /* Medium gray for the description text */
+  margin: 0 0 10px; /* No margin above, 10px below */
 }
-
-/* Price styling */
 h5 {
-  font-size: 1.1rem;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-/* Discounted price styling */
-.price {
-  font-size: 1.5rem;
-  color: #e74c3c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .product-box {
-    max-width: 100%;
-  }
-
-  .description h4 {
-    font-size: 1rem;
-  }
-
-  h5 {
-    font-size: 1rem;
-  }
-
-  .price {
-    font-size: 1.2rem;
-  }
+  margin: 0; /* No margin around the price info */
+  font-size: 1rem; /* Font size for price info */
+  color: #777; /* Light gray color */
 }
