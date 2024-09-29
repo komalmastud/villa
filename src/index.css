@@ -129,6 +129,41 @@
   position: absolute;
 }
 
+.modal {
+  position: absolute;
+  left: 900px;
+  top: 100px; /* Ensure modal is on top */
+}
+.overlay {
+  position: fixed; /* Keep overlay fixed to cover full screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-modal {
+  margin-top: 20px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.ok-modal {
+  margin-top: 20px;
+  margin-left: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
 .black button {
   height: 8vh;
   width: 10%;

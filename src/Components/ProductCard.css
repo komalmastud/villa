@@ -1,42 +1,52 @@
-/* Container for the rate cards */
 .product {
   padding: 20px;
   background-color: #f9f9f9;
 }
+
 .product-box {
   background-color: #fff;
-  border: 1px solid #ddd; /* Light gray border around the card */
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Hide overflow content */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-  transition: transform 0.3s; /* Smooth scaling transition */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
-
 .product-box:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  transform: scale(1.05);
 }
 
 .product-box img {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  height: auto;
 }
+
 .description {
-  padding: 15px; /* Space around the description text */
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-top: 2px solid #ddd;
 }
 
 .description h4 {
-  margin: 0 0 10px; /* No margin above, 10px below */
-  font-size: 1.2rem; /* Font size for product name */
-  color: #333; /* Dark gray color for the name */
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #333;
 }
 
-.para {
-  font-size: 0.9rem; /* Font size for the description */
-  color: #555; /* Medium gray for the description text */
-  margin: 0 0 10px; /* No margin above, 10px below */
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 10px;
 }
-h5 {
-  margin: 0; /* No margin around the price info */
-  font-size: 1rem; /* Font size for price info */
-  color: #777; /* Light gray color */
+
+.product-info {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #000;
+  font-size: 1.2rem;
 }
