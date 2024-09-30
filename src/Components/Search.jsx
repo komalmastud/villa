@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DatePicker } from "antd";
-import CartToggle from "./Carttoggle"; // Ensure you have this component
+import CartToggle from "./Carttoggle";
 
 const Search = () => {
   const [values, setValues] = useState({ room: "" });
@@ -12,7 +12,10 @@ const Search = () => {
   };
 
   const toggleModal = () => setModal((prev) => !prev);
-  const handleModalContentClick = (e) => e.stopPropagation();
+
+  const handleModalContentClick = (e) => {
+    e.stopPropagation();
+  };
 
   const setDecrease = (type) => {
     setGuests((prev) => ({ ...prev, [type]: Math.max(prev[type] - 1, 0) }));
@@ -20,6 +23,12 @@ const Search = () => {
 
   const setIncrease = (type, max) => {
     setGuests((prev) => ({ ...prev, [type]: Math.min(prev[type] + 1, max) }));
+  };
+
+  const applyAndSearch = () => {
+    console.log("Search triggered with guests:", guests);
+
+    toggleModal();
   };
 
   return (
@@ -66,19 +75,19 @@ const Search = () => {
                 label="Adults"
                 amount={guests.adults}
                 setDecrease={() => setDecrease("adults")}
-                setIncrease={() => setIncrease("adults", 10)} // Max adults
+                setIncrease={() => setIncrease("adults", 10)}
               />
               <CartToggle
                 label="Rooms"
                 amount={guests.rooms}
                 setDecrease={() => setDecrease("rooms")}
-                setIncrease={() => setIncrease("rooms", 5)} // Max rooms
+                setIncrease={() => setIncrease("rooms", 5)}
               />
               <CartToggle
                 label="Infants"
                 amount={guests.infants}
                 setDecrease={() => setDecrease("infants")}
-                setIncrease={() => setIncrease("infants", 5)} // Max infants
+                setIncrease={() => setIncrease("infants", 5)}
               />
               <button
                 className="close-modal"
@@ -87,7 +96,11 @@ const Search = () => {
               >
                 Close
               </button>
-              <button className="ok-modal" type="button" onClick={toggleModal}>
+              <button
+                className="ok-modal"
+                type="button"
+                onClick={applyAndSearch}
+              >
                 APPLY & SEARCH
               </button>
             </div>

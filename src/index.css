@@ -12,6 +12,10 @@
   position: fixed;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .navbar ul {
   list-style: none;
   margin: 0;
@@ -131,11 +135,11 @@
 
 .modal {
   position: absolute;
+  z-index: 100;
   left: 900px;
-  top: 100px; /* Ensure modal is on top */
+  top: -250px; /* Ensure modal is on top */
 }
 .overlay {
-  position: fixed; /* Keep overlay fixed to cover full screen */
   top: 0;
   left: 0;
   right: 0;
@@ -145,8 +149,8 @@
   background: white;
   padding: 20px;
   border-radius: 8px;
+  z-index: 1001;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: fixed;
 }
 .close-modal {
   margin-top: 20px;
@@ -221,7 +225,9 @@
 .fulldiv label {
   margin-left: 200px;
 }
-
+.fulldiv {
+  z-index: 1;
+}
 .fulldiv h4 {
   margin-left: 50px;
 }
