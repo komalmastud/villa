@@ -1,12 +1,22 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import './Navbar.css'; 
+import "./Navbar.css";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <div>
       <nav className="navbar">
-        
-        <ul>
+        <button className="nav-icon" onClick={toggleMenu}>
+          ☰ {/* Hamburger icon */}
+        </button>
+
+        <ul className={isMenuOpen ? "open" : ""}>
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "pink" : "link")}
