@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DatePicker } from "antd";
+import "./Search.css";
 import CartToggle from "./Carttoggle";
 
 const Search = () => {

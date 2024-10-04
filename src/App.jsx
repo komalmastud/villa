@@ -1,73 +1,29 @@
-import "./App.css";
-import AboutUs from "./Components/AboutUs";
-import Login from "./Components/Login";
 import Navbar from "./Components/Navbar";
-import Swipper from "./Components/Swipper";
-import User from "./Components/User";
-import Home from "./Home";
-import "./index.css";
+import Swipper from "./Components/Swipper"; // Check if needed
+import User from "./Components/User"; // Check if needed
+import Mainfile from "./Mainfile"; // Check if needed
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Home, ContactUs, Explore, Services } from "./Components/Pages"; // Ensure exports are correct
 
-function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <>
-          <Home />
-        </>
-      ),
-    },
-    {
-      path: "/login",
-      element: (
-        <>
-          <Navbar />
-          <Login />
-        </>
-      ),
-    },
-    {
-      path: "/aboutus",
-      element: (
-        <>
-          <Navbar />
-          <AboutUs />
-        </>
-      ),
-    },
-    {
-      path: "/user/:username",
-      element: (
-        <>
-          <Navbar />
-          <User />
-        </>
-      ),
-    },
-    {
-      path: "/swiper",
-      element: (
-        <>
-          <Navbar />
-          <Swipper />
-        </>
-      ),
-    },
+const App = () => {
+  return (
+    <>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
+      </div>
 
-    {
-      path: "*",
-      element: (
-        <>
-          <Navbar />
-          <h1>Page Not Found</h1>
-        </>
-      ),
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
-}
+      <Swipper />
+      <User />
+      <Mainfile />
+    </>
+  );
+};
 
 export default App;

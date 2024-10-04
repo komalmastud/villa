@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "./Collection.css";
 import Collection1 from "../assets/image3.jpg";
 import Collection2 from "../assets/image4.jpg";
 import Collection3 from "../assets/image5.jpg";

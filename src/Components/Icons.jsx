@@ -19,7 +19,7 @@ import Slide5 from "../assets/Nashik.svg";
 import Slide4 from "../assets/Ooty.svg";
 import Slide3 from "../assets/Pune.svg";
 import Slide10 from "../assets/Shimla.svg";
-
+import "./Icons.css";
 function Features() {
   return (
     <>

@@ -1,0 +1,16 @@
+/*icons css*/
+.Image img {
+  height: 12vh;
+  width: 50%;
+  margin-left: 50px;
+  padding-top: 80px;
+}
+.fulldiv label {
+  margin-left: 200px;
+}
+.fulldiv {
+  z-index: 1;
+}
+.fulldiv h4 {
+  margin-left: 50px;
+}

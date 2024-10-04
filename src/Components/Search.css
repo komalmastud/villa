@@ -1,0 +1,100 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  height: 11vh;
+  width: 85%;
+  background-color: white;
+  box-shadow: rgb(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 500px;
+  padding-top: 30px;
+  border-radius: 8px;
+  border: 2px solid lightgrey;
+  left: 120px;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+}
+
+.modal {
+  position: absolute;
+  z-index: 100;
+  left: 900px;
+  top: -250px; /* Ensure modal is on top */
+}
+.overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1001;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-modal {
+  margin-top: 20px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.ok-modal {
+  margin-top: 20px;
+  margin-left: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.black button {
+  height: 8vh;
+  width: 10%;
+  margin: 1px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  line-height: 8vh;
+  padding: 2px;
+  top: 27px;
+  left: 1135px;
+  position: absolute;
+  border-radius: 5px;
+}
+
+.location button,
+.checkin button,
+.checkout button,
+.guest button {
+  height: 8vh;
+  width: 21%;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: normal;
+  top: 27px;
+  border: 1px solid lightgrey;
+  position: absolute;
+}
+
+.location button {
+  left: 10px;
+  margin-left: 10px;
+}
+
+.checkin button {
+  left: 300px;
+}
+
+.checkout button {
+  left: 578px;
+}
+
+.guest button {
+  left: 860px;
+}

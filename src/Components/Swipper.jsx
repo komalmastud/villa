@@ -3,6 +3,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules"; // Import Aut
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "./Swipper.css";
 import Slide1 from "../assets/image3.jpg";
 import Slide2 from "../assets/image4.jpg";
 import Slide3 from "../assets/image5.jpg";
