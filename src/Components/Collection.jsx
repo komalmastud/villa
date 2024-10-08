@@ -20,7 +20,6 @@ function Collection() {
     setActiveSlide(index === activeSlide ? null : index); // Toggle blur
   };
 
-  // Define an array of objects containing image, heading, and description
   const collections = [
     {
       image: Collection1,
@@ -80,13 +79,28 @@ function Collection() {
       <Swiper
         className="collection-container"
         spaceBetween={20}
-        slidesPerView={5}
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
         loop={true}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        breakpoints={{
+          640: {
+            // Mobile devices
+            slidesPerView: 1,
+          },
+          768: {
+            // Tablet devices
+            slidesPerView: 2,
+          },
+          1024: {
+            // Desktop devices
+            slidesPerView: 3,
+          },
+          1280: {
+            // Large screens
+            slidesPerView: 5,
+          },
+        }}
       >
         {collections.map((collection, index) => (
           <SwiperSlide key={index}>

@@ -4,7 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "./ProductCard.css";
+import "./ResponsiveCards.css";
 
 // Import images
 import Image1 from "../assets/card1.jpg";
@@ -49,7 +49,7 @@ const slideData = [
   },
 ];
 
-const ProductSlideSwiper = () => {
+const ResponsiveSlideSwiper = () => {
   return (
     <Swiper
       modules={[Navigation, Pagination]}
@@ -71,15 +71,11 @@ const ProductSlideSwiper = () => {
     >
       {slideData.map((slide, index) => (
         <SwiperSlide key={index}>
-          <div className="product">
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="product-image"
-            />
-            <div className="product-content">
-              <h3 className="product-title">{slide.title}</h3>
-              <p className="product-description">{slide.description}</p>
+          <div className="slide">
+            <img src={slide.image} alt={slide.title} className="slide-image" />
+            <div className="slide-content">
+              <h3 className="slide-title">{slide.title}</h3>
+              <p className="slide-description">{slide.description}</p>
             </div>
           </div>
         </SwiperSlide>
@@ -88,4 +84,4 @@ const ProductSlideSwiper = () => {
   );
 };
 
-export default ProductSlideSwiper;
+export default ResponsiveSlideSwiper;

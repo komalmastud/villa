@@ -1,29 +1,50 @@
+import "./App.css";
 import Navbar from "./Components/Navbar";
-import Swipper from "./Components/Swipper"; // Check if needed
-import User from "./Components/User"; // Check if needed
-import Mainfile from "./Mainfile"; // Check if needed
+import Swipper from "./Components/Swipper";
+import Mainfile from "./Mainfile";
+import "./index.css";
 
-import { Routes, Route } from "react-router-dom";
-import { Home, ContactUs, Explore, Services } from "./Components/Pages"; // Ensure exports are correct
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const App = () => {
-  return (
-    <>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contactUs" element={<ContactUs />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/services" element={<Services />} />
-        </Routes>
-      </div>
+function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <Navbar />
+          <Swipper />
+          <Mainfile />
+        </>
+      ),
+    },
+    {
+      path: "/login",
+      element: <></>,
+    },
+    {
+      path: "/aboutus",
+      element: <></>,
+    },
+    {
+      path: "/user/:username",
+      element: <></>,
+    },
+    {
+      path: "/swiper",
+      element: <></>,
+    },
+    {
+      path: "*",
+      element: (
+        <>
+          <h1>Page Not Found</h1>
+        </>
+      ),
+    },
+  ]);
 
-      <Swipper />
-      <User />
-      <Mainfile />
-    </>
-  );
-};
+  return <RouterProvider router={router} />;
+}
 
 export default App;

@@ -1,16 +1,57 @@
-/*icons css*/
-.Image img {
-  height: 12vh;
-  width: 50%;
-  margin-left: 50px;
-  padding-top: 80px;
-}
-.fulldiv label {
-  margin-left: 200px;
-}
 .fulldiv {
-  z-index: 1;
+  text-align: center; /* Center text */
+  margin: 20px 0; /* Space around the component */
 }
-.fulldiv h4 {
-  margin-left: 50px;
+
+.icons-container {
+  padding: 10px 0; /* Padding for the Swiper container */
+}
+
+.icons-container img {
+  width: 100%; /* Make images responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 80px; /* Set a max width for the icons */
+  margin: 0 auto; /* Center the icons */
+}
+
+.icons-container h4 {
+  margin-top: 8px; /* Space between image and text */
+  font-size: 14px; /* Adjust font size */
+  color: #333; /* Text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .icons-container {
+    padding: 5px 0; /* Adjust padding */
+  }
+
+  .icons-container img {
+    max-width: 70px; /* Smaller icons on medium screens */
+  }
+
+  .icons-container h4 {
+    font-size: 12px; /* Smaller text */
+    margin-top: 100px; /* Adjust margin */
+  }
+}
+
+@media (max-width: 768px) {
+  .icons-container img {
+    max-width: 60px; /* Smaller icons on small screens */
+  }
+
+  .icons-container h4 {
+    font-size: 11px; /* Smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  .icons-container img {
+    max-width: 50px; /* Icon size for mobile screens */
+  }
+
+  .icons-container h4 {
+    font-size: 10px; /* Smaller text */
+  }
 }

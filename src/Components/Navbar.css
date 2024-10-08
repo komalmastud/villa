@@ -1,85 +1,85 @@
-nav {
+/*Navbar.css*/
+/* Navbar.css */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f172a;
-  position: sticky;
-  top: 0;
+  background-color: #333;
   padding: 1rem;
+  position: relative;
+  z-index: 1000;
 }
 
-.nav-title {
+.brand {
+  color: white;
+  font-size: 1.5rem;
   font-weight: bold;
+}
+
+.nav-icon {
+  display: none; /* Hidden on larger screens */
+  background: none;
+  border: none;
   color: white;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  align-items: center;
-}
-
-nav ul li {
-  margin: 0 0.5rem;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-
-nav ul li a:not(.active):hover {
-  background-color: #172554;
-}
-
-.nav-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 2.25rem;
-  height: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
-.nav-menu span {
-  height: 0.4rem;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 0.2rem;
-  transition: background-color 0.3s;
+.navmain-content {
+  display: flex;
+}
 
-  /* Responsive styles */
-  @media (max-width: 480px) {
-    nav {
-      flex-direction: column;
-      align-items: center;
-    }
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
 
-    nav ul {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      margin-top: 0.5rem;
-      align-items: center;
-    }
+.navbar-menu li {
+  margin: 0 15px;
+}
 
-    nav ul.open {
-      display: flex;
-    }
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
 
-    nav ul li {
-      width: 100%;
-      text-align: center;
-    }
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
 
-    nav ul li a {
-      margin: 0.2rem 0;
-    }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-icon {
+    display: block; /* Show menu icon on smaller screens */
+  }
 
-    .nav-menu {
-      display: flex;
-    }
+  .navmain-content {
+    display: none; /* Hide menu by default on mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    z-index: 1;
+  }
+
+  .navmain-content.open {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    padding: 0; /* Remove default padding */
+    width: 100%; /* Full width */
+  }
+
+  .navbar-menu li {
+    margin: 10px 0; /* Spacing between menu items */
+    text-align: center; /* Center align text */
   }
 }
