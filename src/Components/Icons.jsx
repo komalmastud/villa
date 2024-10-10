@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -23,16 +23,34 @@ import Slide13 from "../assets/Conoor.svg";
 import Slide14 from "../assets/Dehradun.svg";
 import Slide15 from "../assets/Goa.svg";
 import Slide16 from "../assets/Gurgaon.svg";
-import "./Icons.css"; // Ensure your CSS file is included
 
 const IconSwiper = () => {
+  const [slidesPerView, setSlidesPerView] = useState(3); // Default for mobile
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200) {
+        setSlidesPerView(7); // Laptop
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(6); // Tablet
+      } else {
+        setSlidesPerView(3); // Mobile
+      }
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener("resize", handleResize); // Update on resize
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup listener
+  }, []);
+
   return (
     <div className="fulldiv">
       <h3>PICK A DESTINATION</h3>
       <Swiper
         className="icons-container"
         spaceBetween={10}
-        slidesPerView={7} // Show 7 icons at once
+        slidesPerView={slidesPerView} // Dynamic slides per view
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}

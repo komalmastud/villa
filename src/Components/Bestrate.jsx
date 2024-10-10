@@ -1,51 +1,46 @@
 import { Link } from "react-router-dom";
-import "./Bestrate.css";
+import "./Bestrate.css"; // Ensure you have a CSS file for styling
 
-const Rate = () => {
+const Trending = () => {
   return (
     <>
-      <div className="resortname-container">
-        <h4>Rate Our Services</h4>
+      <div className="bestrate-container">
+        <h3>Trending Destinations</h3>
       </div>
-      <ul className="resortname-link">
+      <ul className="bestrate-link">
         <li>
-          <Link to="/" className="resortname">
+          <Link to="/" className="trending-button">
             All
           </Link>
         </li>
         <li>
-          <Link to="/rate/1-star" className="resortname">
+          <Link to="/lonavala" className="trending-button">
             Lonavala
           </Link>
         </li>
         <li>
-          <Link to="/rate/2-stars" className="resortname">
+          <Link to="/alibaug" className="trending-button">
             Alibaug
           </Link>
         </li>
         <li>
-          <Link to="/rate/3-stars" className="resortname">
+          <Link to="/goa" className="trending-button">
             Goa
           </Link>
         </li>
         <li>
-          <Link to="/rate/4-stars" className="resortname">
+          <Link to="/shimla" className="trending-button">
             Shimla
           </Link>
         </li>
         <li>
-          <Link to="/rate/5-stars" className="resortname">
+          <Link to="/manali" className="trending-button">
             Manali
           </Link>
         </li>
         <li>
-          <Link to="/rate-more" className="resortname">
-            Coorg
-          </Link>
-        </li>
-        <li>
-          <Link to="/rate-more" className="resortname">
-            Explore more
+          <Link to="/explore-more" className="trending-button">
+            Explore More
           </Link>
         </li>
       </ul>
@@ -53,4 +48,4 @@ const Rate = () => {
   );
 };
 
-export default Rate;
+export default Trending;

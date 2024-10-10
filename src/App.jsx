@@ -1,8 +1,8 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import Swipper from "./Components/Swipper";
 import Mainfile from "./Mainfile";
 import "./index.css";
+import Swipper from "./Components/Swipper";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

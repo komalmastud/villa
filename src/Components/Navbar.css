@@ -1,27 +1,43 @@
-/*Navbar.css*/
 /* Navbar.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0); /* Initial transparent background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 1rem;
-  position: relative;
-  z-index: 1000;
+  padding: 25px 80px;
+  z-index: 1000; /* Ensure it stays on top */
+  transition: background-color 0.3s ease; /* Transition for background */
+}
+
+.navbar.scrolled {
+  background-color: white;
+}
+
+/* Change link color when navbar is scrolled */
+.navbar.scrolled .link {
+  color: black; /* Link color when scrolled */
 }
 
 .brand {
-  color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .nav-icon {
-  display: none; /* Hidden on larger screens */
+  display: none; /* Hide the menu icon by default */
   background: none;
   border: none;
-  color: white;
-  font-size: 1.5rem;
+  font-size: 24px;
   cursor: pointer;
 }
 
@@ -31,55 +47,76 @@
 
 .navbar-menu {
   list-style: none;
-  display: flex;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  display: flex;
 }
 
 .navbar-menu li {
-  margin: 0 15px;
+  margin-left: 10px; /* Reduced space between items */
+}
+
+.brand {
+  color: white;
 }
 
 .link {
-  color: white;
   text-decoration: none;
-  font-size: 1rem;
+  color: white; /* Default link color */
+  transition: color 0.3s;
+  padding: 10px 15px; /* Add padding for the button effect */
+  border: 1px solid transparent; /* Initial transparent border */
+  border-radius: 5px; /* Rounded corners */
 }
 
+/* Apply border to all links except the first child (Home) */
+.navbar-menu li:not(:first-child) .link {
+  border: 1px solid white; /* Border for all links except Home */
+}
+
+.link:hover,
 .active {
-  font-weight: bold;
-  border-bottom: 2px solid white;
+  color: #007bff; /* Active link color */
+}
+
+/* Additional styling for hover state */
+.navbar-menu li:not(:first-child) .link:hover {
+  border: 1px solid #0056b3; /* Darker border on hover */
+}
+
+/* Additional border styling for navbar menu items */
+.navbar-menu li {
+  display: inline-block; /* Align items horizontally */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .nav-icon {
-    display: block; /* Show menu icon on smaller screens */
+    display: block; /* Show the menu icon on mobile */
   }
 
   .navmain-content {
-    display: none; /* Hide menu by default on mobile */
     position: absolute;
-    top: 100%;
+    top: 60px; /* Below the navbar */
     left: 0;
     right: 0;
-    background-color: #333;
-    z-index: 1;
+    background-color: whitesmoke;
+    display: none; /* Hide by default */
+    flex-direction: column;
+    padding: 10px 0;
   }
 
   .navmain-content.open {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
+    display: flex; /* Show when open */
   }
 
   .navbar-menu {
     flex-direction: column;
-    padding: 0; /* Remove default padding */
-    width: 100%; /* Full width */
+    width: 100%;
+    text-align: center; /* Center text for mobile */
   }
 
   .navbar-menu li {
-    margin: 10px 0; /* Spacing between menu items */
-    text-align: center; /* Center align text */
+    margin: 5px 0; /* Reduced space between items on mobile */
   }
 }
