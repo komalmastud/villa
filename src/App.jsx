@@ -3,7 +3,7 @@ import Navbar from "./Components/Navbar";
 import Mainfile from "./Mainfile";
 import "./index.css";
 import Swipper from "./Components/Swipper";
-
+import Alibaug from "./Components/Alibaug";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -19,20 +19,24 @@ function App() {
       ),
     },
     {
+      path: "/alibaug",
+      element: <Alibaug />,
+    },
+    {
       path: "/login",
-      element: <></>,
+      element: <></>, // Implement your Login component
     },
     {
       path: "/aboutus",
-      element: <></>,
+      element: <></>, // Implement your About Us component
     },
     {
       path: "/user/:username",
-      element: <></>,
+      element: <></>, // Implement your User component
     },
     {
       path: "/swiper",
-      element: <></>,
+      element: <></>, // Implement your Swiper component
     },
     {
       path: "*",
