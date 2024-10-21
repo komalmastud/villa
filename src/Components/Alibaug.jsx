@@ -1,7 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import Sidebar from "./SideBar";
+import Search from "./Search"; // Ensure this component exists
 import {
   faUserFriends,
   faBed,
@@ -27,18 +30,15 @@ import spaces3 from "../assets/spaces3.jpg";
 import spaces4 from "../assets/spaces4.jpg";
 import spaces5 from "../assets/spaces5.jpg";
 import spaces6 from "../assets/spaces6.jpg";
-import Slider from "react-slick";
 
 const Alibaug = () => {
-  const overviewRef = useRef(null);
-  const highlightsRef = useRef(null);
-  const spacesRef = useRef(null);
-  const reviewsRef = useRef(null);
-  const amenitiesRef = useRef(null);
+  const [searchVisible, setSearchVisible] = useState(false); // State for search visibility
 
-  const handleScrollTo = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+  const handleButtonClick = (buttonName) => {
+    if (buttonName === "Select Date") {
+      setSearchVisible(!searchVisible); // Toggle search visibility on "Select Date" click
+    } else {
+      alert(`${buttonName} clicked!`);
     }
   };
 
@@ -57,11 +57,17 @@ const Alibaug = () => {
       <nav className="alibag-navbar">
         <ul className="alibag-navbar-links">
           <li className="alibag-navbar-item">Hampton</li>
-          <li className="alibag-navbar-item">Select Date</li>
+          <li
+            className="alibag-navbar-item"
+            onClick={() => handleButtonClick("Select Date")}
+          >
+            Select Date
+          </li>
           <li className="alibag-navbar-item">2 Guests</li>
         </ul>
       </nav>
-
+      {searchVisible && <Search />}{" "}
+      {/* Conditionally render Search component */}
       <div className="image-container">
         <div className="left-image">
           <img src={Image1} alt="Full Image" className="full-image" />
@@ -71,33 +77,32 @@ const Alibaug = () => {
           <img src={Image3} alt="Half Image 2" className="half-image" />
         </div>
       </div>
-
       <div className="button-container">
-        {["Overview", "Highlights", "Spaces", "Reviews", "Amenities"].map(
-          (label, index) => (
-            <button
-              key={index}
-              className="alibaug-button"
-              onClick={() => {
-                if (label === "Overview") handleScrollTo(overviewRef);
-                else if (label === "Highlights") handleScrollTo(highlightsRef);
-                else if (label === "Spaces") handleScrollTo(spacesRef);
-                else if (label === "Reviews") handleScrollTo(reviewsRef);
-                else if (label === "Amenities") handleScrollTo(amenitiesRef);
-              }}
-            >
-              {label}
-            </button>
-          )
-        )}
+        {[
+          "Overview",
+          "Highlights",
+          "Spaces",
+          "Reviews",
+          "Amenities",
+          "Meals",
+          "Location",
+          "Experience",
+          "FAQ",
+        ].map((label, index) => (
+          <button
+            key={index}
+            className="alibaug-button"
+            onClick={() => handleButtonClick(label)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
-
       <div className="button-divider"></div>
       <div className="left-aligned">
-        <h3 ref={highlightsRef}>Hamptons Charm</h3>
+        <h3>Hamptons Charm</h3>
         <p>Alibaug, Maharashtra</p>
       </div>
-
       <div className="green-buttons-container">
         {[
           { label: "Up to 14 Guests", icon: faUserFriends },
@@ -111,7 +116,7 @@ const Alibaug = () => {
           </button>
         ))}
       </div>
-
+      <Sidebar />
       <div className="great-for-container">
         {[
           { label: "Food", icon: faUtensils },
@@ -124,7 +129,6 @@ const Alibaug = () => {
           </div>
         ))}
       </div>
-
       <div className="features-container">
         {[
           { label: "Heated Pool", icon: faSwimmingPool },
@@ -141,8 +145,8 @@ const Alibaug = () => {
           </div>
         ))}
       </div>
-
-      <div ref={overviewRef} className="Name">
+      <br />
+      <div className="Name">
         <h3>Hamptons Charm - Villa in Alibaug</h3>
         <p>
           Surrounded by greenery and close to the beach, Hamptons Charm is a
@@ -154,7 +158,7 @@ const Alibaug = () => {
           head here for a charming time!
         </p>
       </div>
-
+      <br />
       <div className="hampstren-container">
         <button className="hampstren-button">Explore Your Stay</button>
         <button className="hampstren-button">Home Rules and Truth</button>
@@ -163,41 +167,87 @@ const Alibaug = () => {
         </button>
         <button className="hampstren-button">FAQ's</button>
       </div>
-
-      {/* Spaces Section */}
-      <div ref={spacesRef} className="content-container">
-        <div className="spaces-header">
-          <h4>Spaces</h4>
-        </div>
-        <div className="spaces-slider-container">
-          <Slider {...settings}>
-            {[space1, space2, spaces3, spaces4, spaces5, spaces6].map(
-              (space, index) => (
-                <div key={index}>
-                  <img
-                    src={space}
-                    alt={`Space ${index + 1}`}
-                    className="spaces-image"
-                  />
-                  <ul>
-                    <li>This bedroom is on the ground floor.</li>
-                    <li>
-                      The room offers pool views, AC, WiFi, king-sized bed.
-                    </li>
-                    <li>
-                      It has an attached bathroom with a geyser, towel and basic
-                      toiletries.
-                    </li>
-                  </ul>
-                </div>
-              )
-            )}
-          </Slider>
-        </div>
+      {/* Spaces Images Section */}
+      <div className="spaces-header">
+        <h4>Spaces</h4>
       </div>
-
-      {/* Amenities Section */}
-      <div ref={amenitiesRef}>
+      <div className="spaces-slider-container">
+        <Slider {...settings}>
+          <div>
+            <img src={space1} alt="Space 1" className="spaces-image" />
+            <ul>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized beds.</li>
+              <li>
+                It has an attached bathroom with a bathtub, geyser, towel and
+                basic toiletries.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src={space2} alt="Space 2" className="spaces-image" />
+            <ul>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>
+                It has an attached bathroom with a geyser, towel and basic
+                toiletries.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src={spaces3} alt="Space 3" className="spaces-image" />
+            <ul>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>
+                It has an attached bathroom with a geyser, towel and basic
+                toiletries.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src={spaces4} alt="Space 4" className="spaces-image" />
+            <ul>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>
+                It has an attached bathroom with a geyser, towel and basic
+                toiletries.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src={spaces5} alt="Space 5" className="spaces-image" />
+            <ul>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>
+                It has an attached bathroom with a geyser, towel and basic
+                toiletries.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <img src={spaces6} alt="Space 6" className="spaces-image" />
+            <ul>
+              <li>
+                Both living rooms are on the ground floor and offer WiFi, AC,
+                music system and seating for 12-15 people.
+              </li>
+              <li>
+                One of them has a modern setting with a TV, while the other has
+                an antique setting.
+              </li>
+              <li>
+                The dining room is part of the living room, and has AC, TV, with
+                seating for 10 people.
+              </li>
+            </ul>
+          </div>
+        </Slider>
+      </div>
+      <div>
         <div className="villa-amenties">
           <h3>Villa Amenities</h3>
         </div>

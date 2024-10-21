@@ -1,29 +1,39 @@
+// Navbar.js
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import Popup from "./Popup";
+import Explore from "./Explore"; // Import Explore component
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isExploreOpen, setIsExploreOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
+  const handleScroll = () => setIsScrolled(window.scrollY > 0);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    setIsPopupOpen(true);
+  };
+
+  const handleExploreClick = (e) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    setIsExploreOpen(true);
+  };
+
+  const handleClosePopup = () => setIsPopupOpen(false);
+  const handleCloseExplore = () => setIsExploreOpen(false);
 
   return (
     <header>
@@ -40,7 +50,7 @@ function Navbar() {
           <ul className="navbar-menu">
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "active" : "link")}
+                className="link"
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -49,7 +59,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "active" : "link")}
+                className="link"
                 to="/luxury-getaways"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -58,7 +68,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                className={({ isActive }) => (isActive ? "active" : "link")}
+                className="link"
                 to="/list-property"
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -66,17 +76,20 @@ function Navbar() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "link")}
-                to="/contact"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink className="link" to="#" onClick={handleContactClick}>
                 Contact Us
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="#" onClick={handleExploreClick}>
+                Explore
               </NavLink>
             </li>
           </ul>
         </div>
       </nav>
+      <Popup isOpen={isPopupOpen} onClose={handleClosePopup} />
+      <Explore isOpen={isExploreOpen} onClose={handleCloseExplore} />
     </header>
   );
 }

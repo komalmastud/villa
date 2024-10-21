@@ -4,6 +4,7 @@ import Mainfile from "./Mainfile";
 import "./index.css";
 import Swipper from "./Components/Swipper";
 import Alibaug from "./Components/Alibaug";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
