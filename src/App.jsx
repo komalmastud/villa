@@ -4,10 +4,11 @@ import Mainfile from "./Mainfile";
 import "./index.css";
 import Swipper from "./Components/Swipper";
 import Alibaug from "./Components/Alibaug";
-
+import BookingPayment from "./Components/Bookingpayment";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  // Define all routes with createBrowserRouter
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,21 +24,15 @@ function App() {
       path: "/alibaug",
       element: <Alibaug />,
     },
-    {
-      path: "/login",
-      element: <></>, // Implement your Login component
-    },
-    {
-      path: "/aboutus",
-      element: <></>, // Implement your About Us component
-    },
-    {
-      path: "/user/:username",
-      element: <></>, // Implement your User component
-    },
+
     {
       path: "/swiper",
       element: <></>, // Implement your Swiper component
+    },
+
+    {
+      path: "/bookingpayment",
+      element: <BookingPayment />,
     },
     {
       path: "*",

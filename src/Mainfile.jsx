@@ -6,6 +6,7 @@ import Collection from "./Components/Collection";
 import Trending from "./Components/Trending";
 import Search from "./Components/Search";
 import Bestrate from "./Components/Bestrate";
+import BookingPayment from "./Components/Bookingpayment";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <Collection />
         <Bestrate />
         <ProductCard />
+        <BookingPayment />
         <Footer />
       </div>
     </>

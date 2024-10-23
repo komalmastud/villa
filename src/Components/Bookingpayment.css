@@ -1,0 +1,273 @@
+/* Container for both booking and meals sections */
+.booking-payment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 850px;
+  margin-top: 80px;
+  margin-left: 40px;
+}
+
+/* Booking Card (First Rectangle) */
+.booking-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left side content (Text Information) */
+.card-content {
+  flex: 1;
+}
+
+/* Right side content (Image) */
+.property-image {
+  width: 200px; /* Set a specific width for the image */
+  height: auto;
+  border-radius: 8px;
+  margin-left: 20px;
+  margin-top: 40px; /* Adds some space between the image and the text content */
+}
+
+/* Share button styling */
+
+/* Additional styling for text sections */
+.card-header h2 {
+  position: absolute;
+  top: 40px; /* Moves the title to the top */
+  left: 60px; /* Moves the title to the left */
+  font-size: 24px;
+  margin: 0;
+}
+.card-header p {
+  margin: 20px 0;
+  font-size: 16px;
+  color: #555;
+}
+.card-body {
+  padding: 20px;
+}
+
+.booking-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px; /* Adds space between check-in, duration, and check-out sections */
+  margin-bottom: 10px;
+  margin-top: 60px;
+}
+
+.check-in,
+.check-out {
+  flex: 1;
+  text-align: left;
+}
+
+.duration {
+  flex: 0.5;
+  text-align: center;
+}
+
+.check-in h4,
+.check-out h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.check-in p,
+.check-out p,
+.duration span {
+  font-size: 16px;
+  color: #666;
+}
+
+.duration span {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .booking-details {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px; /* Reduces gap on smaller screens */
+  }
+
+  .check-in,
+  .check-out {
+    margin-bottom: 10px;
+  }
+
+  .duration {
+    margin-bottom: 10px;
+  }
+}
+
+.card-header p {
+  font-size: 14px;
+  position: absolute;
+  top: 50px;
+  color: #555;
+}
+
+.room-details,
+.booking-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.rating-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Meals Section (Second Rectangle) */
+.meals-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: -180px;
+  background-color: #f7f7f7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.meal-btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.meal-btn:hover {
+  background-color: #eaeaea;
+}
+
+.veg-menu .green-dot {
+  color: green;
+  margin-right: 8px;
+}
+
+.mix-menu .green-dot {
+  color: green;
+  margin-right: 4px;
+}
+
+.mix-menu .red-triangle {
+  color: red;
+  margin-left: 4px;
+}
+
+.view-more {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+/* Policy Card Styles */
+.policy-card {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: 10px; /* Center align */
+  border: 1px solid #ccc;
+}
+
+.policy-card h4 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.policy-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.policy-details .half-refund,
+.policy-details .no-refund {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.policy-details h5 {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+}
+
+.policy-details p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+.policy-details .calendar-icon,
+.policy-details .house-icon {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.view-more-link {
+  display: inline-block;
+  font-size: 1rem;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.view-more-link:hover {
+  text-decoration: underline;
+}
+/* CSS for the request section */
+.request {
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: 20px; /* Center align */
+}
+
+.request h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.request p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Small rectangle (input field) for user to write request */
+.request-textbox {
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  background-color: #f9f9f9; /* Light background */
+  color: #333;
+  font-size: 1rem;
+  resize: none; /* Prevent resizing */
+}
