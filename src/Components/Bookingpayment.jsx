@@ -19,7 +19,6 @@ function Bookingpayment() {
 
   return (
     <div className="booking-payment-container">
-      {/* Booking Details Section */}
       <div className="booking-card">
         <div className="card-header">
           <h2>{propertyName}</h2>
@@ -67,7 +66,7 @@ function Bookingpayment() {
         </div>
       </div>
       <Pricedetails />
-      {/* Meals Section */}
+
       <div className="meals-card">
         <h4>Meals</h4>
         <p>
@@ -86,7 +85,6 @@ function Bookingpayment() {
         </div>
       </div>
 
-      {/* Booking & Cancellation Policy Section */}
       <div className="policy-card">
         <h4>Booking & Cancellation Policy</h4>
         <div className="policy-details">

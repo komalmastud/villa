@@ -259,15 +259,13 @@
   margin-bottom: 15px;
 }
 
-/* Small rectangle (input field) for user to write request */
 .request-textbox {
-  border: 1px solid #ccc; /* Light border */
+  border: 1px solid #ccc; 
   border-radius: 5px;
   padding: 10px;
   width: 100%;
   height: 100px;
-  background-color: #f9f9f9; /* Light background */
+  background-color: #f9f9f9; 
   color: #333;
   font-size: 1rem;
-  resize: none; /* Prevent resizing */
-}
+  resize: none; 
