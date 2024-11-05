@@ -1,0 +1,49 @@
+.most-loved {
+  position: relative;
+  display: inline-block;
+  margin-top: 300px;
+}
+
+.sort-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.arrow {
+  margin-left: 10px;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 200px;
+}
+
+.dropdown-option {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-option.active {
+  background-color: #e6f7ff;
+  font-weight: bold;
+}
+
+.dropdown-option:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-option span {
+  margin-right: 10px;
+}

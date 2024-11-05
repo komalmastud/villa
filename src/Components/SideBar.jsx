@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { DatePicker } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
-import { Link } from "react-router-dom";
 import "./Sidebar.css";
-import CartToggle from "./CartToggle";
-// Ensure this component is created
+import CartToggle from "./CartToggle"; // Ensure this component is created
 
 const Search = () => {
   const [checkIn, setCheckIn] = useState(null);
@@ -58,7 +56,6 @@ const Search = () => {
   };
 
   const handlePayment = () => {
-    // Navigate to the booking payment page with the relevant data
     if (pricing) {
       navigate("/booking-payment", {
         state: { checkIn, checkOut, guests, rooms, pricing },
@@ -89,32 +86,20 @@ const Search = () => {
         <hr className="horizontal-line" />
 
         <div className="guest-room-row">
-          <div className="guest">
-            <button
-              className="guests-button"
-              type="button"
-              onClick={toggleModal}
-            >
-              <span className="guests-label">Guests</span>
-              <span className="guests-info">
-                {guests.adults} Adult{guests.adults !== 1 ? "s" : ""},{" "}
-                {guests.children} Child{guests.children !== 1 ? "ren" : ""},{" "}
-                {guests.infants} Infant{guests.infants !== 1 ? "s" : ""}
-              </span>
-            </button>
-          </div>
-          <div className="room">
-            <button
-              className="rooms-button"
-              type="button"
-              onClick={toggleRoomModal}
-            >
-              <span className="rooms-label">Rooms</span>
-              <span className="rooms-info">
-                {rooms} Room{rooms > 1 ? "s" : ""}
-              </span>
-            </button>
-          </div>
+          <button className="guests-button" type="button" onClick={toggleModal}>
+            <span className="guests-label">Guests</span>
+            <span className="guests-info"></span> {/* Keep it empty */}
+          </button>
+          <button
+            className="rooms-button"
+            type="button"
+            onClick={toggleRoomModal}
+          >
+            <span className="rooms-label">Rooms</span>
+            <span className="rooms-info">
+              {rooms} Room{rooms > 1 ? "s" : ""}
+            </span>
+          </button>
         </div>
         <hr className="horizontal-line" />
 

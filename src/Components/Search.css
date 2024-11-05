@@ -1,175 +1,183 @@
+/* Swiper container styling */
+.swiper-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Search styling */
 .search {
+  position: absolute;
+  top: 600px; /* Default position for larger screens */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
-  padding: 5px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-search {
-  display: flex;
+  flex-direction: row; /* Change to column for smaller screens */
   align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.mobile-search input {
-  flex: 1;
-  padding: 6px;
-  border: 1px solid #ccc;
-  border-radius: 50px;
-  font-size: 14px;
-  margin-right: 8px;
-  outline: none;
-}
-
-.mobile-search input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.search-icon {
-  cursor: pointer;
-  font-size: 18px;
-  color: #007bff;
-  border-radius: 50%;
-  padding: 6px;
-  background-color: #f0f0f0;
-}
-
-.location,
-.checkin,
-.checkout,
-.guest,
-.black {
-  margin-bottom: 10px;
-}
-
-.location label,
-.checkin label,
-.checkout label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.location input,
-.checkin input,
-.checkout input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.checkin .ant-picker,
-.checkout .ant-picker {
-  width: 100%;
-}
-.guest button,
-.black button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 10px; /* Add space below each button */
-}
-
-.guest button:last-child,
-.black button:last-child {
-  margin-bottom: 0; /* Remove margin from the last button */
-}
-
-.guest {
-  display: flex;
-  flex-direction: column; /* Ensure buttons stack vertically */
-}
-
-.black {
-  display: flex;
-  flex-direction: column; /* Ensure buttons stack vertically */
-}
-
-.guest button:hover,
-.black button:hover {
-  background-color: #0056b3;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
+  justify-content: space-between;
   padding: 20px;
+  background-color: whitesmoke;
   border-radius: 8px;
-  width: 300px;
-}
-
-.close-modal,
-.ok-modal {
-  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
-  background-color: #28a745;
-  padding: 12px; /* Increase padding for buttons */
-  font-size: 16px; /* Increase font size for buttons */
+  max-width: 1200px;
+  z-index: 10;
 }
 
-.close-modal {
-  background-color: #dc3545; /* Red for close button */
+/* Guest button styling */
+.guest button {
+  flex-grow: 1; /* Allow the button to grow and fill available space */
+  padding: 20px 50px; /* Increased vertical padding for height */
+  font-size: 20px; /* Increased font size */
+  border: 1px solid rgba(128, 128, 128, 0.5); /* Transparent grey border */
+  background-color: whitesmoke; /* Set background color similar to check-in/check-out */
+  color: black; /* Text color */
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 10px 10px; /* Keep top margin for spacing */
+  min-width: 180px; /* Reduced width for guest button */
+  height: 60px; /* Set height similar to check-in and check-out buttons */
 }
 
-.close-modal:hover,
-.ok-modal:hover {
-  opacity: 0.9; /* Slightly reduce opacity on hover */
+.guest button:hover {
+  background-color: #f0f0f0; /* Light hover color */
 }
 
-/* Media Queries */
+/* Black button styling */
+.black button {
+  flex-grow: 1; /* Allow the button to grow and fill available space */
+  padding: 20px 50px; /* Adjust horizontal padding for a wider button */
+  font-size: 20px; /* Increased font size */
+  border: 2px solid black; /* Solid border for black button */
+  background-color: black; /* Black background */
+  color: white; /* Text color */
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 10px 10px; /* Add top margin to push buttons down */
+  min-width: 200px; /* Set a consistent width for black button */
+  height: 60px; /* Set height for consistent button size */
+}
+
+.black button:hover {
+  background-color: #0056b3; /* Change hover color for black button */
+}
+
+/* Check-in and Check-out button styling */
+.checkin button,
+.checkout button {
+  flex-grow: 1;
+  padding: 20px 40px; /* Adjust horizontal padding */
+  font-size: 20px; /* Increased font size */
+  border: 2px solid transparent; /* Transparent border */
+  background-color: whitesmoke; /* Set background color */
+  color: black; /* Text color for contrast */
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px; /* Space between check-in and check-out buttons */
+  min-width: 200px; /* Set a consistent width for check-in/check-out buttons */
+  height: 60px; /* Set height for check-in and check-out buttons */
+}
+
+.checkin button:hover,
+.checkout button:hover {
+  background-color: #0056b3; /* Change hover color */
+}
+
+/* Media Queries for responsive adjustments */
 @media (max-width: 767px) {
   .search {
-    padding: 5px; /* Further reduced padding for mobile */
-    margin-top: -10px; /* Upward adjustment */
+    flex-direction: column;
+    padding: 5px;
+    width: 80%;
+    top: 350px; /* Adjusted position for mobile screens */
+    height: 50px; /* Ensure height adjusts automatically */
   }
 
-  .mobile-search input {
-    padding: 6px; /* Reduced input height */
-    font-size: 14px; /* Smaller font size */
+  .guest button,
+  .black button,
+  .checkin button,
+  .checkout button {
+    padding: 12px 20px; /* Reduced padding for smaller buttons */
+    font-size: 16px; /* Slightly smaller font size */
+    width: 100%; /* Full width on smaller screens */
+    height: 50px; /* Set a consistent height for buttons */
   }
 }
 
-@media (min-width: 768px) {
+/* Tablet responsiveness */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .search {
+    flex-direction: row; /* Keep it as a row for tablets */
+    padding: 15px; /* Slightly reduce padding */
+    width: 95%; /* Use more width on tablets */
+    top: 450px; /* Adjust vertical position as needed */
+    max-width: 90%; /* Ensure it doesn't exceed the screen width */
+    align-items: center; /* Center items vertically */
+  }
+
+  /* Guest button adjustments */
+  .guest button {
+    min-width: 70px; /* Further reduce width for guest button on tablet */
+    height: 50px;
+    margin-left: 4px;
+    margin-right: -4px;
+  }
+
+  /* Black button and check-in/check-out button adjustments */
+  .black button,
+  .checkin button,
+  .checkout button {
+    padding: 15px 30px; /* Adjust padding for tablet */
+    font-size: 18px; /* Slightly smaller font size */
+    margin: 5px; /* Space around buttons */
+    min-width: 150px; /* Set a consistent width for black button */
+    height: 50px; /* Adjust height for a better fit */
+  }
+
+  /* Adding margin for spacing between buttons */
+  .checkin button {
+    margin-right: 15px; /* Space to the right of the check-in button */
+  }
+
+  .checkout button {
+    margin-left: 15px; /* Space to the left of the check-out button */
+    margin-right: 15px; /* Space to the right of the check-out button */
+  }
+
+  /* Adjust location input */
+  .location input {
+    margin-left: 15px; /* Space to the left of the location input */
+    margin-right: 10px; /* Space to the right for symmetry */
+    padding: 10px; /* Optional: Padding for input */
+    flex-grow: 1; /* Allow the input to grow and fill space */
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 1025px) {
   .search {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-radius: 8px; /* Original design for larger screens */
-    padding: 15px; /* Increased padding for larger screens */
-    margin-top: -10px; /* Upward adjustment */
+    padding: 20px;
   }
 
   .guest button,
-  .black button {
-    padding: 16px; /* Increased padding for buttons on larger screens */
-    font-size: 18px; /* Larger font size for buttons */
+  .black button,
+  .checkin button,
+  .checkout button {
+    padding: 25px 50px; /* Increase padding for larger screens */
+    font-size: 22px; /* Increased font size for larger screens */
+    min-width: 250px; /* Consistent min-width */
+    max-width: 100%; /* Ensure buttons expand as necessary */
+    width: 100%; /* Full width */
+    height: 60px; /* Set height for consistent button size */
   }
 
   .location input,
   .checkin .ant-picker,
   .checkout .ant-picker {
-    padding: 12px; /* Increased padding for inputs */
-    font-size: 16px; /* Larger font size for inputs */
+    padding: 15px;
+    font-size: 16px;
   }
 }

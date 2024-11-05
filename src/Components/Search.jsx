@@ -42,9 +42,6 @@ const Search = () => {
               if (e.key === "Enter") handleSearch();
             }}
           />
-          <span className="search-icon" onClick={handleSearch}>
-            <i className="fas fa-search"></i>
-          </span>
         </div>
       ) : (
         <>

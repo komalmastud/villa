@@ -17,34 +17,51 @@ import Image6 from "../assets/card6.jpg";
 // Sample data for the slides
 const slideData = [
   {
-    title: "Luxury Escape",
-    description: "Indulge in a premium experience with our luxury escapes.",
+    title: "Pranaam",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image1,
   },
   {
     title: "Mountain Retreat",
-    description: "Reconnect with nature at our scenic mountain retreats.",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image2,
   },
   {
     title: "City Break",
-    description: "Explore the vibrant city life with our exclusive offers.",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image3,
   },
   {
     title: "Beachfront Paradise",
-    description: "Relax at our beachfront properties with stunning views.",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image4,
   },
   {
     title: "Cultural Journey",
-    description: "Immerse yourself in local culture with our guided tours.",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image5,
   },
   {
     title: "Adventure Awaits",
-    description:
-      "Embark on a daring adventure with our specially curated packages.",
+    location: "Alibaug, Maharashtra",
+    description: "Upto 15 Guests + 6 Rooms + 6 Baths",
+    price: "64,000",
+    text: "For Per Night + Taxes",
     image: Image6,
   },
 ];
@@ -79,7 +96,12 @@ const ProductSlideSwiper = () => {
             />
             <div className="product-content">
               <h3 className="product-title">{slide.title}</h3>
+              <p className="product-location">{slide.location}</p>{" "}
+              {/* Add location */}
               <p className="product-description">{slide.description}</p>
+              <p className="product-price">₹{slide.price}</p> {/* Add price */}
+              <p className="product-text">{slide.text}</p>{" "}
+              {/* Add price description */}
             </div>
           </div>
         </SwiperSlide>

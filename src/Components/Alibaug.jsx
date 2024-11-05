@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Sidebar from "./SideBar";
-import Search from "./Search"; // Ensure this component exists
+import Search from "./Search";
 import {
   faUserFriends,
   faBed,
@@ -14,11 +14,6 @@ import {
   faSwimmingPool,
   faWifi,
   faDog,
-  faShower,
-  faSoap,
-  faBath,
-  faGamepad,
-  faCocktail,
 } from "@fortawesome/free-solid-svg-icons";
 import "./alibaughNavbar.css";
 import Image1 from "../assets/hamptons1.jpg";
@@ -33,6 +28,29 @@ import spaces6 from "../assets/spaces6.jpg";
 
 const Alibaug = () => {
   const [searchVisible, setSearchVisible] = useState(false); // State for search visibility
+  const [slidesToShow, setSlidesToShow] = useState(3); // Default to 3 slides for desktop and tablet
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Check window width and update the number of slides accordingly
+      if (window.innerWidth <= 768) {
+        setSlidesToShow(1); // Show 1 slide for mobile screens (<= 768px)
+      } else {
+        setSlidesToShow(3); // Show 3 slides for larger screens (default setting)
+      }
+    };
+
+    // Initial check on component mount
+    handleResize();
+
+    // Add event listener to resize window
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleButtonClick = (buttonName) => {
     if (buttonName === "Select Date") {
@@ -46,7 +64,7 @@ const Alibaug = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow, // Dynamic based on screen width
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -66,14 +84,18 @@ const Alibaug = () => {
           <li className="alibag-navbar-item">2 Guests</li>
         </ul>
       </nav>
-      {searchVisible && <Search />}{" "}
-      {/* Conditionally render Search component */}
+      {searchVisible && <Search />}
       <div className="image-container">
         <div className="left-image">
           <img src={Image1} alt="Full Image" className="full-image" />
         </div>
         <div className="right-images">
           <img src={Image2} alt="Half Image 1" className="half-image" />
+          {/* Heart-shaped button */}
+          <button className="heart-button">
+            <span className="heart-icon">❤️</span>
+            Save
+          </button>
           <img src={Image3} alt="Half Image 2" className="half-image" />
         </div>
       </div>
@@ -167,7 +189,6 @@ const Alibaug = () => {
         </button>
         <button className="hampstren-button">FAQ's</button>
       </div>
-      {/* Spaces Images Section */}
       <div className="spaces-header">
         <h4>Spaces</h4>
       </div>
@@ -209,8 +230,8 @@ const Alibaug = () => {
           <div>
             <img src={spaces4} alt="Space 4" className="spaces-image" />
             <ul>
-              <li>This bedroom is on the ground floor.</li>
-              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>This bedroom is on the first floor.</li>
+              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
               <li>
                 It has an attached bathroom with a geyser, towel and basic
                 toiletries.
@@ -220,8 +241,8 @@ const Alibaug = () => {
           <div>
             <img src={spaces5} alt="Space 5" className="spaces-image" />
             <ul>
-              <li>This bedroom is on the ground floor.</li>
-              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
+              <li>This bedroom is on the first floor.</li>
+              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
               <li>
                 It has an attached bathroom with a geyser, towel and basic
                 toiletries.
@@ -231,46 +252,15 @@ const Alibaug = () => {
           <div>
             <img src={spaces6} alt="Space 6" className="spaces-image" />
             <ul>
+              <li>This bedroom is on the first floor.</li>
+              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
               <li>
-                Both living rooms are on the ground floor and offer WiFi, AC,
-                music system and seating for 12-15 people.
-              </li>
-              <li>
-                One of them has a modern setting with a TV, while the other has
-                an antique setting.
-              </li>
-              <li>
-                The dining room is part of the living room, and has AC, TV, with
-                seating for 10 people.
+                It has an attached bathroom with a geyser, towel and basic
+                toiletries.
               </li>
             </ul>
           </div>
         </Slider>
-      </div>
-      <div>
-        <div className="villa-amenties">
-          <h3>Villa Amenities</h3>
-        </div>
-
-        <div className="amenities-container">
-          {[
-            { label: "Steam/Sauna", icon: faShower },
-            { label: "Towels", icon: faSoap },
-            { label: "Geyser", icon: faShower },
-            { label: "Extra Mattress", icon: faBed },
-            { label: "Toiletries", icon: faSoap },
-            { label: "Bathtub", icon: faBath },
-            { label: "Indoor/Outdoor Games", icon: faGamepad },
-            { label: "Bar", icon: faCocktail },
-          ].map((item, index) => (
-            <div key={index} className="amenity-item">
-              <div className="amenity-icon">
-                <FontAwesomeIcon icon={item.icon} />
-              </div>
-              {item.label}
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

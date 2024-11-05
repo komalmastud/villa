@@ -6,7 +6,9 @@ import Collection from "./Components/Collection";
 import Trending from "./Components/Trending";
 import Search from "./Components/Search";
 import Bestrate from "./Components/Bestrate";
-import BookingPayment from "./Components/Bookingpayment";
+import UserPopup from "./Components/Userpopup";
+import Sharepopup from "./Components/Sharepopup";
+import Mostloved from "./Components/Mostloved";
 
 const Home = () => {
   return (
@@ -19,8 +21,10 @@ const Home = () => {
         <Collection />
         <Bestrate />
         <ProductCard />
-        <BookingPayment />
         <Footer />
+        <UserPopup />
+        <Mostloved />
+        <Sharepopup />
       </div>
     </>
   );

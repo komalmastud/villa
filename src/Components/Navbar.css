@@ -89,6 +89,9 @@ body {
 }
 
 /* Responsive Styles */
+/* Your existing styles here... */
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .nav-icon {
     display: block; /* Show the menu icon on mobile */
@@ -117,5 +120,22 @@ body {
 
   .navbar-menu li {
     margin: 5px 0; /* Reduced space between items on mobile */
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-menu {
+    padding: 0; /* Remove any padding if necessary */
+  }
+
+  .navbar-menu li {
+    margin-left: 5px; /* Further reduce space between items */
+    margin-right: 5px; /* Add margin to right for uniform spacing */
+  }
+
+  .link {
+    padding: 6px 10px; /* Reduced padding for links */
+    font-size: 16px; /* Adjust font size if needed */
   }
 }

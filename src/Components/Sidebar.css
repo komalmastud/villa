@@ -1,21 +1,22 @@
-/* Main pink square styling */
 .main-pink-square {
-  background-color: #ff69b4; /* Bright pink color */
+  background-color: #fbe9d5; /* Bright pink color */
   padding: 20px; /* Padding inside the pink square */
   border-radius: 12px; /* Rounded corners for the pink square */
   display: flex; /* Use flexbox for layout */
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center children horizontally */
-  margin: 20px auto; /* Center the pink square on the page */
   width: 80%; /* Adjust width as necessary */
-  max-width: 600px; /* Maximum width for the pink square */
+  max-width: 450px;
+  margin-left: 780px;
+  margin-top: 310px;
+  position: fixed; /* Maximum width for the pink square */
 }
 
 /* Price text styling */
 .price-text {
   font-size: 24px; /* Font size for price text */
   font-weight: bold; /* Bold text */
-  color: white; /* White color for text */
+  color: black; /* White color for text */
   margin-bottom: 20px; /* Space below the price text */
   text-align: center; /* Center the text */
   width: 100%; /* Full width to center align */
@@ -33,107 +34,119 @@
 /* Date picker row styling */
 .date-picker-row {
   display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space out the date pickers */
-  margin-bottom: 10px; /* Space below the date picker row */
+  justify-content: space-between; /* Space items evenly */
 }
 
-/* Individual date picker box styling */
+/* Date picker box styling */
 .date-picker-box {
-  flex: 1; /* Each box takes equal space */
-  margin-right: 10px; /* Space between the boxes */
+  flex: 1; /* Flex property to take equal space */
+  margin-right: 40px; /* Right margin for spacing */
 }
 
-/* Guest and room row styling */
-.guest-room-row {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space out guests and rooms */
-  margin-bottom: 10px; /* Space below the guest and room row */
-}
-
-/* Guest button styling */
-.guests-button,
-.rooms-button {
-  background-color: #ff69b4; /* Pink background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+/* Last date picker box */
+.date-picker-box:last-child {
+  margin-right: 0; /* No right margin for the last box */
 }
 
 /* Horizontal line styling */
 .horizontal-line {
   border: none; /* No border */
-  height: 1px; /* Line thickness */
-  background-color: #ccc; /* Line color */
-  margin: 10px 0; /* Space above and below the line */
+  height: 1px; /* Height of the line */
+  background-color: #ccc; /* Color of the line */
+  margin: 15px 0; /* Margin above and below the line */
+}
+
+/* Guest and room row styling */
+.guest-room-row {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly */
+}
+
+/* Button styling */
+.guests-button,
+.rooms-button {
+  flex: 1; /* Flex property to take equal space */
+  background-color: white; /* Bright pink background */
+  color: black; /* White text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #e6eaed;
+  padding: 10px; /* Padding inside buttons */
+  margin-right: 10px; /* Right margin for spacing */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Use flexbox for content alignment */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Last button */
+.rooms-button:last-child {
+  margin-right: 0; /* No margin for the last button */
+}
+
+/* Book now button styling */
+.book-now-button {
+  background-color: black; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 12px; /* Padding inside the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 100%; /* Full width of the button */
+  margin-top: 10px; /* Space above the button */
 }
 
 /* Modal styling */
 .modal {
-  position: fixed; /* Fixed position */
-  top: 0; /* Align to top */
-  left: 0; /* Align to left */
-  right: 0; /* Align to right */
-  bottom: 0; /* Align to bottom */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
+  position: fixed; /* Fixed positioning */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex; /* Use flexbox for centering */
   align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
 /* Modal content styling */
 .modal-content {
   background-color: white; /* White background */
   padding: 20px; /* Padding inside the modal */
-  border-radius: 8px; /* Rounded corners for modal */
-  width: 300px; /* Fixed width for modal */
-}
-
-/* Room selection button styling */
-.room-option {
-  background-color: #ff69b4; /* Pink background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 10px; /* Padding */
-  border-radius: 5px; /* Rounded corners */
-  margin: 5px; /* Space between buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-}
-
-/* Selected room option styling */
-.room-option.selected {
-  background-color: #e63946; /* Darker pink for selected */
+  border-radius: 8px; /* Rounded corners for the modal */
+  width: 300px; /* Fixed width for the modal */
 }
 
 /* Close modal button styling */
-.close-modal,
-.ok-modal {
-  background-color: #ff69b4; /* Pink background */
-  color: white; /* White text */
+.close-modal {
+  background-color: white; /* Pink background */
+  color: black; /* White text */
   border: none; /* No border */
-  padding: 10px; /* Padding */
   border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside the button */
   cursor: pointer; /* Pointer cursor on hover */
-  margin-top: 10px; /* Space above buttons */
+  margin-top: 10px; /* Space above the button */
 }
 
-.book-now-container {
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  margin-top: 20px; /* Space above the button */
+/* Pricing details styling */
+.pricing-details {
+  margin-top: 20px; /* Space above the pricing details */
 }
 
-.book-now-button {
-  background-color: black; /* Black background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding around the text */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
+/* Error message styling */
+.error-message {
+  color: red; /* Red color for error messages */
+  margin-top: 10px; /* Space above the error message */
 }
 
-.book-now-button:hover {
-  background-color: #444; /* Darker shade on hover */
+/* Guests label and info styling */
+.guests-label,
+.rooms-label {
+  font-weight: bold; /* Bold text */
+}
+
+.guests-info,
+.rooms-info {
+  font-size: 14px; /* Smaller font size for info */
+  color: #666; /* Gray color for info text */
 }
