@@ -163,7 +163,7 @@
 .button-container::before,
 .button-container::after {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   width: 30px;
@@ -289,8 +289,8 @@
   .green-buttons-container {
     flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
     justify-content: center; /* Center the buttons on smaller screens */
-    margin-left: 0; /* Remove or adjust the negative margin */
-    margin-top: 30px; /* Adjust top margin for better spacing */
+    margin-left: 1px; /* Remove or adjust the negative margin */
+    margin-top: 10px; /* Adjust top margin for better spacing */
   }
 
   .green-button {
@@ -303,26 +303,28 @@
 
 /* Header Section */
 /* Default styles (for larger screens) */
-.left-aligned h1 {
+.left-aligned h3 {
   font-size: 2em;
-  margin-left: -610px;
-  margin-top: 20px;
+  margin-left: 10px;
+  margin-top: 40px;
 }
 
 .left-aligned p {
   font-size: 1.5em;
-  margin-left: -600px;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
   .left-aligned h3 {
     font-size: 2.5em; /* Slightly larger font for laptops */
-    margin-left: -600px; /* Center or align based on overall layout */
+    margin-left: -450px;
+    margin-top: 20px; /* Center or align based on overall layout */
   }
 
   .left-aligned p {
     font-size: 1.8em; /* Slightly larger font for laptops */
-    margin-left: -600px; /* Adjust alignment accordingly */
+    margin-left: -450px;
+    margin-top: 20px; /* Adjust alignment accordingly */
   }
 }
 /* Tablet screens (768px to 1024px) */
@@ -340,10 +342,10 @@
 
 /* Mobile screens (below 768px) */
 @media (max-width: 768px) {
-  .lft-aligned h1 {
+  .left-aligned h3 {
     font-size: 1.5em; /* Smaller font size for mobile */
-    margin-left: 0; /* Remove negative margin for mobile */
-    margin-top: 10px;
+    margin-left: -10px; /* Remove negative margin for mobile */
+    margin-top: -30px;
   }
 
   .left-aligned p {
@@ -389,6 +391,32 @@ e
   /* Prevent child elements from wrapping */
   .great-for-container > * {
     flex: 0 0 auto; /* Ensure elements don’t shrink or wrap */
+  }
+}
+@media (min-width: 1024px) {
+  .great-for-container {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange children in a row */
+    margin: 20px 0; /* Vertical spacing */
+    gap: 20px; /* Spacing between items */
+    justify-content: flex-start; /* Align items to the left */
+    width: auto; /* Width based on content */
+    padding: 0; /* No padding */
+    margin-left: -450px;
+  }
+
+  /* Prevent child elements from wrapping */
+  .great-for-container > * {
+    flex: 0 0 auto; /* Maintain their natural size */
+    text-align: left; /* Align text to the left */
+    padding: 10px; /* Padding for touch targets */
+  }
+
+  /* Additional styles to ensure alignment */
+  .great-for-item {
+    display: flex; /* Allow internal flex layout */
+    align-items: center; /* Center items vertically */
+    margin: 0; /* No margin */
   }
 }
 
@@ -474,7 +502,7 @@ e
 /* Name Section */
 .Name {
   text-align: left; /* Align text to the left */
-  margin-top: 80px; /* Remove any default margin */
+  margin-top: 100px; /* Remove any default margin */
   padding: 0;
   margin-left: 40px; /* Ensure no padding is affecting layout */
 }
@@ -490,10 +518,30 @@ e
   margin: 0; /* Fix typo, should be 'margin' */
 }
 
+@media (min-width: 1024px) {
+  .Name {
+    text-align: left;
+    margin-top: 70px; /* Slightly reduce margin for laptop screens */
+    padding: 0;
+    margin-left: 60px; /* Increase left margin for a more centered look */
+  }
+
+  .Name h3 {
+    font-size: 28px; /* Increase heading size slightly for readability on larger screens */
+    margin-bottom: 12px;
+  }
+
+  .Name p {
+    font-size: 18px; /* Increase paragraph size slightly for readability */
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
 /* Media Query for Tablet Screens */
 @media (max-width: 768px) {
   .Name {
-    margin-top: 50px; /* Reduce top margin for smaller screens */
+    margin-top: 80px; /* Reduce top margin for smaller screens */
     margin-left: 20px; /* Reduce left margin for better spacing */
   }
 
@@ -509,7 +557,8 @@ e
 /* Optional: Add styles for smaller screens */
 @media (max-width: 480px) {
   .Name {
-    margin-left: 10px; /* Further reduce left margin */
+    margin-left: 10px;
+    margin-top: 20px; /* Further reduce left margin */
   }
 
   .Name h3 {
@@ -590,81 +639,83 @@ e
     margin-bottom: 10px; /* Add spacing between buttons vertically */
   }
 }
-
-@media (max-width: 1024px) {
-  /* Covers both tablet and smaller screens */
+@media (min-width: 1024px) {
   .hampstren-container {
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    justify-content: center;
-    margin-left: -80px; /* Center buttons */
+    display: flex;
+    justify-content: flex-start; /* Keep buttons aligned to the left */
+    margin-left: 50px; /* Shift the container slightly to the right */
   }
 
   .hampstren-button {
-    flex: 1; /* Equal space */
-    min-width: 100px; /* Adjust based on your design */
-    margin: 5px; /* Space between buttons */
+    padding: 8px 16px; /* Reduce button padding to decrease background size */
+    background-color: #f0f0f0; /* Optional: Adjust background color */
+    border-radius: 4px; /* Optional: Round button edges for a refined look */
+    margin-right: 10px; /* Add space between buttons */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .hampstren-button:hover {
+    background-color: #e0e0e0; /* Lighter background on hover */
   }
 }
 
 /* Amenities Section */
-.amenity-icon {
-  width: 50px; /* Increased width for a larger square */
-  height: 50px; /* Increased height to maintain square shape */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f0f0; /* Light background */
-  border: 1px solid #ccc; /* Border for the icon */
-  border-radius: 5px; /* Optional: slight rounding for a softer look */
-  margin-right: 5px; /* Spacing between icon and label */
-  padding: 5px; /* Adjust padding as needed */
+.Amenties-button {
+  padding: 30px; /* Add some padding around the section */
+}
+
+#Amenities h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .amenities-container {
   display: flex;
-  flex-wrap: wrap; /* Optional if you want them to wrap */
-  justify-content: flex-start;
-  margin-left: -200px; /* Align items to the start */
-  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: nowrap; /* Keeps all items in a single line */
+  overflow-x: auto; /* Allows horizontal scrolling on smaller screens if needed */
+  padding-bottom: 10px;
+  margin-left: -600px;
 }
 
-.amenity-item {
+.amenities-container ul {
+  display: flex;
+  list-style: none; /* Remove default list style */
+  padding: 0;
+  margin: 0;
+}
+
+.amenities-container li {
   display: flex;
   align-items: center;
-  margin-right: 2px;
-  font-size: 14px; /* Increased font size for better visibility */
+  margin-right: 20px; /* Space between each amenity */
+  font-size: 14px; /* Font size for amenity label */
 }
 
-.villa-amenties {
-  text-align: left;
-  margin: 0;
-  padding: 10px 0;
+.amenities-container li:last-child {
+  margin-right: 0; /* Remove right margin for the last item */
 }
 
-.villa-amenties h3 {
-  font-size: 15px;
-  line-height: 1.2;
-  margin: 0;
+.amenities-container li .fa-icon {
+  margin-right: 8px; /* Space between icon and text */
 }
-@media (max-width: 1024px) {
-  .amenities-container {
-    margin-left: -20px; /* Reset negative margin for better alignment */
-    justify-content: center; /* Center items for a better appearance */
+
+.amenities-container li svg {
+  width: 24px;
+  height: 24px;
+  color: black; /* Icon color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .amenities-container li {
+    font-size: 12px; /* Smaller font size on mobile */
+    margin-right: 15px; /* Less spacing on mobile */
   }
 
-  .amenity-item {
-    font-size: 12px; /* Decrease font size for better readability on smaller screens */
-    margin-right: 10px; /* Increase spacing between items */
-  }
-
-  .amenity-icon {
-    width: 20px; /* Decrease icon size for tablet */
-    height: 20px; /* Decrease icon size for tablet */
-    padding: 1px; /* Adjust padding as needed */
-  }
-
-  .villa-amenties h3 {
-    font-size: 14px; /* Decrease heading size for tablet */
+  .amenities-container li svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -779,27 +830,56 @@ e
   position: relative; /* Position relative for absolute positioning of the button */
   display: inline-block; /* Ensures the container sizes to the image */
 }
-
-.heart-button {
-  position: absolute; /* Position the button absolutely */
-  top: 100px; /* Adjust this value to place the button vertically */
-  left: 1150px; /* Adjust this value to place the button horizontally */
-  display: inline-flex;
+.Heart-button,
+.Share-button {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+  display: flex;
   align-items: center;
-  background-color: white; /* Red background color */
-  color: black; /* White text color */
-  border: none; /* No border */
-  border-radius: 25px; /* Rounded corners */
-  padding: 10px 20px; /* Padding for the button */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
-.heart-button:hover {
-  background-color: #e60000; /* Darker red on hover */
+/* Position Heart button at the top-right corner */
+.Heart-button {
+  top: 100px;
+  right: 10px;
 }
 
-.heart-icon {
-  margin-right: 8px; /* Space between heart icon and text */
+/* Position Share button at the top-left corner */
+.Share-button {
+  top: 100px;
+  right: 100px;
+}
+
+/* Hover effect for buttons */
+.Heart-button:hover,
+.Share-button:hover {
+  background-color: #f0f0f0;
+}
+.popup,
+.share-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* For dimming the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure popup is above other content */
+}
+
+.popup-content,
+.share-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
 }

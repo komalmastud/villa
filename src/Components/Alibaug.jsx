@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import Sidebar from "./SideBar";
-import Search from "./Search";
+import Popup from "./Popup";
+import Sharepopup from "./Sharepopup";
+import "slick-carousel/slick/slick-theme.css";
 import {
   faUserFriends,
   faBed,
@@ -14,6 +14,8 @@ import {
   faSwimmingPool,
   faWifi,
   faDog,
+  faHeart,
+  faShareAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "./alibaughNavbar.css";
 import Image1 from "../assets/hamptons1.jpg";
@@ -25,38 +27,18 @@ import spaces3 from "../assets/spaces3.jpg";
 import spaces4 from "../assets/spaces4.jpg";
 import spaces5 from "../assets/spaces5.jpg";
 import spaces6 from "../assets/spaces6.jpg";
+import Slider from "react-slick";
 
 const Alibaug = () => {
-  const [searchVisible, setSearchVisible] = useState(false); // State for search visibility
-  const [slidesToShow, setSlidesToShow] = useState(3); // Default to 3 slides for desktop and tablet
+  const [activeSection, setActiveSection] = useState(null);
+  const [showPopup, setShowPopup] = useState(false); // State to manage Popup visibility
+  const [showSharePopup, setShowSharePopup] = useState(false); // State to manage Sharepopup visibility
 
-  useEffect(() => {
-    const handleResize = () => {
-      // Check window width and update the number of slides accordingly
-      if (window.innerWidth <= 768) {
-        setSlidesToShow(1); // Show 1 slide for mobile screens (<= 768px)
-      } else {
-        setSlidesToShow(3); // Show 3 slides for larger screens (default setting)
-      }
-    };
-
-    // Initial check on component mount
-    handleResize();
-
-    // Add event listener to resize window
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const handleButtonClick = (buttonName) => {
-    if (buttonName === "Select Date") {
-      setSearchVisible(!searchVisible); // Toggle search visibility on "Select Date" click
-    } else {
-      alert(`${buttonName} clicked!`);
+  const handleButtonClick = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   };
 
@@ -64,7 +46,7 @@ const Alibaug = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: slidesToShow, // Dynamic based on screen width
+    slidesToShow: 4, // Updated to show 4 images at once
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -75,30 +57,29 @@ const Alibaug = () => {
       <nav className="alibag-navbar">
         <ul className="alibag-navbar-links">
           <li className="alibag-navbar-item">Hampton</li>
-          <li
-            className="alibag-navbar-item"
-            onClick={() => handleButtonClick("Select Date")}
-          >
-            Select Date
-          </li>
+          <li className="alibag-navbar-item">Select Date</li>
           <li className="alibag-navbar-item">2 Guests</li>
         </ul>
       </nav>
-      {searchVisible && <Search />}
       <div className="image-container">
         <div className="left-image">
           <img src={Image1} alt="Full Image" className="full-image" />
         </div>
         <div className="right-images">
           <img src={Image2} alt="Half Image 1" className="half-image" />
-          {/* Heart-shaped button */}
-          <button className="heart-button">
-            <span className="heart-icon">❤️</span>
-            Save
+          <button className="Heart-button" onClick={() => setShowPopup(true)}>
+            <FontAwesomeIcon icon={faHeart} />
+          </button>
+          <button
+            className="Share-button"
+            onClick={() => setShowSharePopup(true)}
+          >
+            <FontAwesomeIcon icon={faShareAlt} />
           </button>
           <img src={Image3} alt="Half Image 2" className="half-image" />
         </div>
       </div>
+
       <div className="button-container">
         {[
           "Overview",
@@ -113,85 +94,109 @@ const Alibaug = () => {
         ].map((label, index) => (
           <button
             key={index}
-            className="alibaug-button"
+            className={`alibaug-button ${
+              activeSection === label ? "active" : ""
+            }`}
             onClick={() => handleButtonClick(label)}
           >
             {label}
           </button>
         ))}
       </div>
-      <div className="button-divider"></div>
-      <div className="left-aligned">
-        <h3>Hamptons Charm</h3>
-        <p>Alibaug, Maharashtra</p>
-      </div>
-      <div className="green-buttons-container">
-        {[
-          { label: "Up to 14 Guests", icon: faUserFriends },
-          { label: "1-5 Rooms", icon: faBed },
-          { label: "Meals Available", icon: faUtensils },
-          { label: "5 Baths", icon: faBathtub },
-        ].map((item, index) => (
-          <button key={index} className="green-button" disabled>
-            <FontAwesomeIcon icon={item.icon} style={{ marginRight: "8px" }} />
-            {item.label}
-          </button>
-        ))}
-      </div>
-      <Sidebar />
-      <div className="great-for-container">
-        {[
-          { label: "Food", icon: faUtensils },
-          { label: "Service", icon: faUserFriends },
-          { label: "Senior Citizens", icon: faUserFriends },
-        ].map((item, index) => (
-          <div key={index} className="great-for-item">
-            <FontAwesomeIcon icon={item.icon} style={{ marginRight: "8px" }} />
-            {item.label}
-          </div>
-        ))}
-      </div>
-      <div className="features-container">
-        {[
-          { label: "Heated Pool", icon: faSwimmingPool },
-          { label: "Garden", icon: faTree },
-          { label: "Forest View", icon: faTree },
-          { label: "WiFi", icon: faWifi },
-          { label: "Pet Friendly", icon: faDog },
-        ].map((item, index) => (
-          <div key={index} className="feature-item">
-            <div className="icon-container">
-              <FontAwesomeIcon icon={item.icon} />
+
+      {/* Overview Section */}
+      <div className="Overview-button" id="Overview">
+        <div className="button-divider"></div>
+        <div className="left-aligned">
+          <h3>Hamptons Charm</h3>
+          <p>Alibaug, Maharashtra</p>
+        </div>
+
+        <div className="green-buttons-container">
+          {[
+            { label: "Up to 14 Guests", icon: faUserFriends },
+            { label: "1-5 Rooms", icon: faBed },
+            { label: "Meals Available", icon: faUtensils },
+            { label: "5 Baths", icon: faBathtub },
+          ].map((item, index) => (
+            <button key={index} className="green-button" disabled>
+              <FontAwesomeIcon
+                icon={item.icon}
+                style={{ marginRight: "8px" }}
+              />
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="great-for-container">
+          {[
+            { label: "Food", icon: faUtensils },
+            { label: "Service", icon: faUserFriends },
+            { label: "Senior Citizens", icon: faUserFriends },
+          ].map((item, index) => (
+            <div key={index} className="great-for-item">
+              <FontAwesomeIcon
+                icon={item.icon}
+                style={{ marginRight: "8px" }}
+              />
+              {item.label}
             </div>
-            {item.label}
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="features-container">
+          {[
+            { label: "Heated Pool", icon: faSwimmingPool },
+            { label: "Garden", icon: faTree },
+            { label: "Forest View", icon: faTree },
+            { label: "WiFi", icon: faWifi },
+            { label: "Pet Friendly", icon: faDog },
+          ].map((item, index) => (
+            <div key={index} className="feature-item">
+              <div className="icon-container">
+                <FontAwesomeIcon icon={item.icon} />
+              </div>
+              {item.label}
+            </div>
+          ))}
+        </div>
       </div>
-      <br />
-      <div className="Name">
-        <h3>Hamptons Charm - Villa in Alibaug</h3>
-        <p>
-          Surrounded by greenery and close to the beach, Hamptons Charm is a
-          stylishly elegant villa in Alibaug. The furnishing is a superb balance
-          of traditional and contemporary comfort. Most rooms surround the pool
-          and even open up to it, including the pavilion. Two can play table
-          tennis by the pool, or simply lounge around it. This villa is an ideal
-          place for you to relax and spend quality time with friends and family,
-          head here for a charming time!
-        </p>
+
+      {/* Highlights Section */}
+      <div className="Highlight-button" id="Highlights">
+        <div className="Name">
+          <h3>Hamptons Charm - Villa in Alibaug</h3>
+          <p>
+            Surrounded by greenery and close to the beach, Hamptons Charm is a
+            stylishly elegant villa in Alibaug. The furnishing is a superb
+            balance of traditional and contemporary comfort. Most rooms surround
+            the pool and even open up to it, including the pavilion. Two can
+            play table tennis by the pool, or simply lounge around it. This
+            villa is an ideal place for you to relax and spend quality time with
+            friends and family, head here for a charming time!
+          </p>
+        </div>
+
+        <div className="hampstren-container">
+          {[
+            "Explore Your Stay",
+            "Home Rules and Truth",
+            "Booking & Cancellation Policy",
+            "FAQ's",
+          ].map((label, index) => (
+            <button key={index} className="hampstren-button">
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
-      <br />
-      <div className="hampstren-container">
-        <button className="hampstren-button">Explore Your Stay</button>
-        <button className="hampstren-button">Home Rules and Truth</button>
-        <button className="hampstren-button">
-          Booking & Cancellation Policy
-        </button>
-        <button className="hampstren-button">FAQ's</button>
-      </div>
-      <div className="spaces-header">
+
+      {/* Spaces Section */}
+      <div className="spaces-header" id="Spaces">
         <h4>Spaces</h4>
       </div>
+
       <div className="spaces-slider-container">
         <Slider {...settings}>
           <div>
@@ -200,7 +205,7 @@ const Alibaug = () => {
               <li>This bedroom is on the ground floor.</li>
               <li>The room offers pool views, AC, WiFi, king-sized beds.</li>
               <li>
-                It has an attached bathroom with a bathtub, geyser, towel and
+                It has an attached bathroom with a bathtub, geyser, towel, and
                 basic toiletries.
               </li>
             </ul>
@@ -211,7 +216,7 @@ const Alibaug = () => {
               <li>This bedroom is on the ground floor.</li>
               <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
               <li>
-                It has an attached bathroom with a geyser, towel and basic
+                It has an attached bathroom with a geyser, towel, and basic
                 toiletries.
               </li>
             </ul>
@@ -222,7 +227,7 @@ const Alibaug = () => {
               <li>This bedroom is on the ground floor.</li>
               <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
               <li>
-                It has an attached bathroom with a geyser, towel and basic
+                It has an attached bathroom with a geyser, towel, and basic
                 toiletries.
               </li>
             </ul>
@@ -230,10 +235,10 @@ const Alibaug = () => {
           <div>
             <img src={spaces4} alt="Space 4" className="spaces-image" />
             <ul>
-              <li>This bedroom is on the first floor.</li>
-              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
               <li>
-                It has an attached bathroom with a geyser, towel and basic
+                It has an attached bathroom with a geyser, towel, and basic
                 toiletries.
               </li>
             </ul>
@@ -241,10 +246,10 @@ const Alibaug = () => {
           <div>
             <img src={spaces5} alt="Space 5" className="spaces-image" />
             <ul>
-              <li>This bedroom is on the first floor.</li>
-              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
               <li>
-                It has an attached bathroom with a geyser, towel and basic
+                It has an attached bathroom with a geyser, towel, and basic
                 toiletries.
               </li>
             </ul>
@@ -252,16 +257,25 @@ const Alibaug = () => {
           <div>
             <img src={spaces6} alt="Space 6" className="spaces-image" />
             <ul>
-              <li>This bedroom is on the first floor.</li>
-              <li>The room offers garden views, AC, WiFi, king-sized bed.</li>
+              <li>This bedroom is on the ground floor.</li>
+              <li>The room offers pool views, AC, WiFi, king-sized bed.</li>
               <li>
-                It has an attached bathroom with a geyser, towel and basic
+                It has an attached bathroom with a geyser, towel, and basic
                 toiletries.
               </li>
             </ul>
           </div>
         </Slider>
       </div>
+
+      {/* Popup Component */}
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+
+      {/* Share Popup Component */}
+      {showSharePopup && (
+        <Sharepopup onClose={() => setShowSharePopup(false)} />
+      )}
+      <Sidebar />
     </div>
   );
 };
